@@ -1,0 +1,48 @@
+.mainDiv{
+    width: 870px;
+    height: 100vh;
+    color: white;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 55px;
+}
+
+.tareasPendientes{
+    width:15rem;
+    height:30rem;
+    background:cyan;
+    border-radius:5%;
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    color:black
+
+}
+
+.tareasEnProgreso{
+    width:15rem;
+    height:30rem;
+    background:cyan;
+    border-radius:5%;
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    color:black
+
+}
+
+.tareasTerminadas{
+    width:15rem;
+    height:30rem;
+    background:cyan;
+    border-radius:5%;
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    color:black
+}
