@@ -5,16 +5,21 @@ export default function TareasBoard() {
     <div className={styles.mainDiv}>
 
       <div className={styles.tareasPendientes}>
-        <div>
+        <div className={styles.textBoxPendiente}>
           <h1>Pendiente</h1>
         </div>
+      </div>
 
-      </div>
       <div className={styles.tareasEnProgreso}>
-      <h1>En progreso</h1>
+        <div className={styles.textBoxProgreso}>
+        <h1>En progreso</h1>
+        </div>
       </div>
+
       <div className={styles.tareasTerminadas}>
-      <h1>Terminadas</h1>
+        <div className={styles.textBoxTerminada}>
+        <h1>Terminadas</h1>
+        </div>
       </div>
     </div>
   )
