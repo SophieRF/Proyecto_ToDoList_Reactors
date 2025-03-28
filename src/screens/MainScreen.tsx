@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 import { NavBar } from "../ui/NavBar/NavBar"
 import { Home } from "../ui/Home/Home"
 import { SideBar } from "../ui/SideBar/SideBar"
@@ -7,17 +7,13 @@ export const MainScreen = () => {
     return (
         <Container>
             <Row>
-                <Col>
-                    <NavBar />
-                </Col>
+                <NavBar />
             </Row>
             <Row>
-                <Col md={2}>
+                <div style={{ display: "flex", flexDirection: "row" }}>
                     <SideBar />
-                </Col>
-                <Col md={10}>
                     <Home />
-                </Col>
+                </div>
             </Row>
         </Container>
     )
