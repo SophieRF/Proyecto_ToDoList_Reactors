@@ -1,0 +1,12 @@
+.mainDiv{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8%;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding:2rem;
+    margin-left: 5rem;
+    margin-top:8rem
+}
