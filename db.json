@@ -1,10 +1,46 @@
-[{
-    "titulo":"Tarea 1",
-    "descripcion":"Esta es una tarea",
-    "fechaLimite": "12-04-2025"
-},
 {
-    "titulo":"Tarea 2",
-    "descripcion":"Esta es otra tarea",
-    "fechaLimite": "16-04-2025"
-}]
+    "backlog": {
+        "tareas": [
+            {
+                "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
+                "titulo": "Tarea backlog",
+                "descripcion": "Descripcion tarea backlog",
+                "estado": "pendiente",
+                "fechaLimite": "2025-03-05"
+            },
+            {
+                "id": "abec0ad5-87e0-4265-8ccf-72bd1f20b93e",
+                "titulo": "Tarea backlog 2",
+                "descripcion": "Descripcion tarea backlog 2",
+                "estado": "pendiente",
+                "fechaLimite": "2025-03-12"
+            }
+        ]
+    },
+    "sprintList": {
+        "sprints": [
+            {
+                "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
+                "fechaInicio": "2025-03-04",
+                "fechaCierre": "2025-03-11",
+                "nombre": "Sprint 122",
+                "tareas": [
+                    {
+                        "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
+                        "titulo": "Tarea 2",
+                        "descripcion": "Estamos aca",
+                        "estado": "pendiente",
+                        "fechaLimite": "2025-03-06"
+                    },
+                    {
+                        "id": "c3699dec-3d1a-12ff-a94d-97d416eac064",
+                        "titulo": "Tarea 3",
+                        "descripcion": "Estamos aca",
+                        "estado": "pendiente",
+                        "fechaLimite": "2025-03-20"
+                    }
+                ]
+            }
+        ]
+    }
+}
