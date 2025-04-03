@@ -19,14 +19,22 @@ export default function BacklogScreen() {
   }
 
   return (
-    <>
-    <div>
-      <button onClick={handleOpenModal}>Crear Tarea</button>
+    <div className={styles.mainContainer}>
+      <div >
+        <div className={styles.titleContainer}>
+          <p>Nombre de la Sprint: </p>
+          <div className={styles.crearTareaContainer}>
+            <p>Tareas en la Sprint: </p>
+            <button onClick={handleOpenModal}>Crear Tarea</button>
+          </div>
+        </div>
+      </div>
+      <div className={styles.listasTareasContainer}>
+        <div className={styles.mainDiv}>
+          <TareasList />
+        </div>
+      </div>
+      {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={null} openModalSee={false} />}
     </div>
-    <div className={styles.mainDiv}>
-     <TareasList />
-    </div>
-    {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={null} openModalSee={false}/>}
-    </>
   )
 }

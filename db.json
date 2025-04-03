@@ -4,8 +4,8 @@
       {
         "id": "1743623662212",
         "titulo": "NuevaTareaCreada231",
-        "descripcion": "descrip",
-        "estado": "Pendiente",
+        "descripcion": "descripcion",
+        "estado": "Terminada",
         "fechaLimite": "2025-04-22"
       },
       {
@@ -42,9 +42,9 @@
     "sprints": [
       {
         "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
-        "fechaInicio": "2025-03-04",
+        "fechaInicio": "2025-02-25",
         "fechaCierre": "2025-03-11",
-        "nombre": "Sprint 122",
+        "nombre": "Sprint 2312",
         "tareas": [
           {
             "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
@@ -60,7 +60,8 @@
             "estado": "pendiente",
             "fechaLimite": "2025-03-20"
           }
-        ]
+        ],
+        "fechaLimite": "2025-03-24"
       }
     ]
   }

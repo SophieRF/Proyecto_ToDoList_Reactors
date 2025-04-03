@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import TareaEntry from '../../components/TareaEntry/TareaEntry'
 import { useTareas } from '../../hooks/useTareas'
@@ -13,7 +12,7 @@ export default function TareasList() {
   return (
     <div className={styles.mainDiv}>
       {tareas.length > 0 ? tareas.map((tarea, index) => (
-        <div key={index}>
+        <div key={index} className={styles.tareaContainer}>
             <TareaEntry tarea={tarea} key={index}/>
         </div>
       )): <p>Este Sprint no contiene tareas</p>}

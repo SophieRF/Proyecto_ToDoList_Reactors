@@ -4,3 +4,11 @@
     align-items: center;
     margin-top: 2rem;
 }
+
+.tareaContainer{
+    margin-bottom: 20px;
+}
+
+.tareaContainer :last-child{
+    margin-bottom: 0px;
+} 

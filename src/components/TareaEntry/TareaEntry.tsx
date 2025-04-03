@@ -5,8 +5,8 @@ import styles from './TareaEntry.module.css'
 import { tareaStore } from '../../store/tareaStore'
 import { useTareas } from '../../hooks/useTareas'
 
-interface ITareaEntryProps{
-  tarea:ITarea
+interface ITareaEntryProps {
+  tarea: ITarea
 }
 
 export default function TareaEntry({ tarea }: ITareaEntryProps) {
@@ -46,13 +46,31 @@ export default function TareaEntry({ tarea }: ITareaEntryProps) {
       </div>
       <div className={styles.divBotones}>
         <div>
-          <button onClick={handleOpenModalSee}>Ver</button>
+          <button
+            className={styles.botonVisibility}
+            onClick={handleOpenModalSee}>
+            <span className="material-symbols-outlined">
+              visibility
+            </span>
+          </button>
         </div>
         <div>
-          <button onClick={handleOpenModalEntry}>Editar</button>
+          <button
+            className={styles.botonEdit}
+            onClick={handleOpenModalEntry}>
+            <span className="material-symbols-outlined">
+              edit
+            </span>
+          </button>
         </div>
         <div>
-          <button onClick={handleDelete}>Borrar</button>
+          <button
+            className= {styles.botonDelete}
+            onClick={handleDelete}>
+            <span className="material-symbols-outlined">
+              delete
+            </span>
+          </button>
         </div>
       </div>
       {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={tarea} openModalSee={openModalSee} />}

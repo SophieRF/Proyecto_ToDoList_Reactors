@@ -1,18 +1,50 @@
-.mainDiv{
-    display:flex;
-    flex-direction: row;
-    width:700px;
-    height: 80px;
-    border: 2px black solid;
-    margin-left: 2rem;
-    margin-top: 0.9rem;
-    padding: 0.85rem;
-}
-
-.divBotones{
-    margin-left: 27rem;
-    margin-top:2rem;
+.mainDiv {
+    width: 120vh;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
     display: flex;
     flex-direction: row;
-    gap:.38rem
+    justify-content: space-between;
+}
+
+.divBotones {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem; 
+    margin-top: auto;  
+}
+
+.divBotones div {
+    flex: 1;
+}
+
+.divBotones button {
+    width: 100%;
+    padding-top: 0.55rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s, transform 0.2s;
+}
+
+.botonVisibility {
+    background: #4fb842;
+    color: black;
+}
+
+.botonEdit {
+    background: #f3ff4a;
+    color: black;
+}
+
+.botonDelete {
+    background: #dd482e;
+    color: black;
+}
+
+.divBotones button:hover {
+    transform: scale(1.05);
+    background: darken(#FFAD69, 10%);
 }
