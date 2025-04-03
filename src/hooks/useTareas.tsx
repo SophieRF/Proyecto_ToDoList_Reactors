@@ -1,7 +1,7 @@
 import { useShallow } from "zustand/shallow";
 import { tareaStore } from "../store/tareaStore";
 import { ITarea } from "../types/ITarea";
-import { createTareaController, deleteTareaController, getTareasController } from "../data/backlogController";
+import { createTareaController, deleteTareaController, getTareasController, updateTareaController } from "../data/backlogController";
 
 export const useTareas = () => {
 
@@ -25,7 +25,6 @@ export const useTareas = () => {
         try {
             await createTareaController(nuevaTarea);
         } catch (error) {
-            eliminarUnaTarea(nuevaTarea.id!);
             console.log(`Error al crear la tarea: ${error}`)
         }
     };
@@ -33,11 +32,10 @@ export const useTareas = () => {
     const updateTarea = async (tareaEditada: ITarea) => {
 
         const estadoPrevio = tareas.find((el) => el.id === tareaEditada.id);
-
         editarTarea(tareaEditada);
 
         try {
-            await editarTarea(tareaEditada);
+            await updateTareaController(tareaEditada);
         } catch (error) {
             if (estadoPrevio) editarTarea(estadoPrevio);
             console.log(`Error al editar la tarea: ${error}`)
@@ -45,6 +43,7 @@ export const useTareas = () => {
     };
 
     const deleteTarea = async (idTarea: string) => {
+
         eliminarUnaTarea(idTarea);
 
         try {

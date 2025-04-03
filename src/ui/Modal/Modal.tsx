@@ -6,165 +6,176 @@ import { tareaStore } from '../../store/tareaStore';
 import { Form } from 'react-bootstrap';
 
 interface IModalProps {
-  activeTarea:ITarea | null,
-  openModalSee:boolean,
-    handleCloseModal: () => void
+  activeTarea: ITarea | null,
+  openModalSee: boolean,
+  handleCloseModal: () => void
 }
 
-const initialState:ITarea={
-  titulo:"",
-  descripcion:"",
-  estado:"",
-  fechaLimite:""
+const initialState: ITarea = {
+  titulo: "",
+  descripcion: "",
+  estado: "",
+  fechaLimite: ""
 
 }
 
 export default function Modal({ handleCloseModal, activeTarea, openModalSee }: IModalProps) {
-  const [formValues, setFormValues]=useState<ITarea>(initialState);
+  const [formValues, setFormValues] = useState<ITarea>(initialState);
+  const { createTarea, updateTarea } = useTareas();
+
   useEffect(() => {
-    if(activeTarea){
-      setFormValues({... activeTarea})
+    if(activeTarea ){
+          setFormValues((prev) =>
+        prev.id ? prev : activeTarea);
     }else{
       setFormValues(initialState)
     }
     
   }, [activeTarea])
-  const setTareaActiva=tareaStore((state) => state.setTareaActiva);
 
-  const { updateTarea}=useTareas();
+  /*
+    useEffect(() => {
+    if (activeTarea) {
+      setFormValues({ ...activeTarea });
+    } else {
+      setFormValues(initialState)
+    }
 
-  const handleChange= (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>{
-    const {name, value}= e.target
-    setFormValues((prev) => ({... prev, [`${name}`]:value}))
-}
+  }, [activeTarea])
+*/
+  const setTareaActiva = tareaStore((state) => state.setTareaActiva);
 
-const handleSubmit=async (e:FormEvent) => {
-  e.preventDefault();
-  if(activeTarea){
-      updateTarea(formValues)
-  }else{
-      // createTarea({... formValues, id: new Date().toDateString()})
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormValues((prev) => ({ ...prev, [`${name}`]: value }))
   }
-  setTareaActiva(null)
-  handleCloseModal()
-}
 
-
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (activeTarea) {
+      updateTarea(formValues);
+    } else {
+      createTarea(formValues.titulo, formValues.descripcion, formValues.fechaLimite);
+    }
+    setTareaActiva(null)
+    handleCloseModal()
+  }
 
   return (
     <div className={styles.mainDiv}>
       <div className={styles.innerDiv}>
         <div className={styles.titulo}>
-          {(activeTarea) ? (openModalSee ? <h1>Ver Tarea</h1>: <h1>Editar Tarea</h1>):(<h1>Crear Tarea</h1>)}
+          {(activeTarea) ? (openModalSee ? <h1>Ver Tarea</h1> : <h1>Editar Tarea</h1>) : (<h1>Crear Tarea</h1>)}
         </div>
         {!openModalSee && activeTarea &&
-        <>
-          <form onSubmit={handleSubmit} className={styles.formulario}>
-          <div>
-            <label>Título:</label>
-            <input
-              type='text'
-              name='titulo'
-              className={styles.inputBox}
-              onChange={handleChange}
-              value={formValues?.titulo}
-            />
-          </div>
-          <div>
-            <label>Descripción:</label>
-            <textarea
-              name='descripcion'
-              className={styles.inputTextarea}
-              onChange={handleChange}
-              value={formValues?.descripcion}
-            />
-          </div>
-          <div>
-          <label>Estado:</label>
-          <Form.Select name='estado' onChange={handleChange} value={formValues?.estado}>
-            <option value="Pendiente">Pendiente</option>
-            <option value="Terminada" >Terminada</option>
-            <option value="En Progreso">En progreso</option>
-          </Form.Select>
-        </div>
-          <div className={styles.fechaInput}>
-            <label>Fecha límite:</label>
-            <input
-              type='date'
-              name='fechaLimite'
-              value={formValues?.fechaLimite}
-              onChange={handleChange}
-            />
-          </div>
-          <div className={styles.buttonsDiv}>
-          <button className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
-          <button type='submit' className={styles.acceptButton}>Aceptar</button>
-        </div>
-        </form>
-        </>}
+          <>
+            <form onSubmit={handleSubmit} className={styles.formulario}>
+              <div>
+                <label>Título:</label>
+                <input
+                  type='text'
+                  name='titulo'
+                  className={styles.inputBox}
+                  onChange={handleChange}
+                  value={formValues?.titulo}
+                />
+              </div>
+              <div>
+                <label>Descripción:</label>
+                <textarea
+                  name='descripcion'
+                  className={styles.inputTextarea}
+                  onChange={handleChange}
+                  value={formValues?.descripcion}
+                />
+              </div>
+              <div>
+                <label>Estado:</label>
+                <Form.Select name='estado' onChange={handleChange} value={formValues?.estado}>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Terminada" >Terminada</option>
+                  <option value="En Progreso">En progreso</option>
+                </Form.Select>
+              </div>
+              <div className={styles.fechaInput}>
+                <label>Fecha límite:</label>
+                <input
+                  type='date'
+                  name='fechaLimite'
+                  value={formValues?.fechaLimite}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.buttonsDiv}>
+                <button className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
+                <button type='submit' className={styles.acceptButton}>Aceptar</button>
+              </div>
+            </form>
+          </>}
         {openModalSee && activeTarea &&
-        <>
-        <div>
-          <p>Título: {activeTarea?.titulo}</p>
-        </div>
-        <div>
-          <p>Descripción: {activeTarea?.descripcion}</p>
-        </div>
-        <div>
-          <p>Estado: {activeTarea?.estado}</p>
-        </div>
-        <div>
-          <p>Fecha límite: {activeTarea?.fechaLimite}</p>
-        </div>
-        <div className={styles.buttonsDiv}>
-          <button className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
-        </div>
-        </>}
-        {!openModalSee && activeTarea==null && 
-        <>
-        <form onSubmit={handleSubmit} className={styles.formulario}>
-        <div>
-          <label>Título:</label>
-          <input
-            type='text'
-            placeholder="Ingrese el título de la tarea"
-            name='titulo'
-            className={styles.inputBox}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Descripción:</label>
-          <textarea
-            placeholder="Ingrese una descripción para la tarea"
-            name='descripcion'
-            className={styles.inputTextarea}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Estado:</label>
-          <Form.Select name='estado' onChange={handleChange} value={formValues.estado}>
-            <option value="Pendiente">Pendiente</option>
-            <option value="Terminada">Terminada</option>
-            <option value="En progreso">En progreso</option>
-          </Form.Select>
-        </div>
-        <div className={styles.fechaInput}>
-          <label>Fecha límite:</label>
-          <input
-            type='date'
-            name='fechaLimite'
-            onChange={handleChange}
-          />
-        </div>
-        <div className={styles.buttonsDiv}>
-        <button className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
-        <button type='submit' className={styles.acceptButton}>Aceptar</button>
+          <>
+            <div>
+              <p>Título: {activeTarea?.titulo}</p>
+            </div>
+            <div>
+              <p>Descripción: {activeTarea?.descripcion}</p>
+            </div>
+            <div>
+              <p>Estado: {activeTarea?.estado}</p>
+            </div>
+            <div>
+              <p>Fecha límite: {activeTarea?.fechaLimite}</p>
+            </div>
+            <div className={styles.buttonsDiv}>
+              <button className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
+            </div>
+          </>}
+        {!openModalSee && activeTarea == null &&
+          <>
+            <form onSubmit={handleSubmit} className={styles.formulario}>
+              <div>
+                <label>Título:</label>
+                <input
+                  type='text'
+                  placeholder="Ingrese el título de la tarea"
+                  name='titulo'
+                  className={styles.inputBox}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Descripción:</label>
+                <textarea
+                  placeholder="Ingrese una descripción para la tarea"
+                  name='descripcion'
+                  className={styles.inputTextarea}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Estado:</label>
+                <Form.Select name='estado' onChange={handleChange} value={formValues.estado}>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Terminada">Terminada</option>
+                  <option value="En progreso">En progreso</option>
+                </Form.Select>
+              </div>
+              <div className={styles.fechaInput}>
+                <label>Fecha límite:</label>
+                <input
+                  type='date'
+                  name='fechaLimite'
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.buttonsDiv}>
+                <button className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
+                <button type='submit' className={styles.acceptButton}>Aceptar</button>
+              </div>
+            </form>
+          </>}
       </div>
-      </form>
-      </>}
-        </div>
-      </div>
+    </div>
   )
 }

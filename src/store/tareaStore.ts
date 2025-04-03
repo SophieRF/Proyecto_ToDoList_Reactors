@@ -6,7 +6,7 @@ interface ITareaStore {
     tareas: ITarea[]
     tareaActiva: ITarea | null
     setTareaActiva: (tareaActiva: ITarea | null) => void;
-    setArrayTareas:(arrayDeTareas: ITarea[]) => void;
+    setArrayTareas: (arrayDeTareas: ITarea[]) => void;
     crearTarea: (titulo: string, descripcion: string, fechaLimite: string) => ITarea;
     editarTarea: (tareaActualizada: ITarea) => void;
     eliminarUnaTarea: (idTarea: string) => void;
@@ -32,8 +32,8 @@ export const tareaStore = create<ITareaStore>((set) => ({
             id: Date.now().toString(),
             titulo,
             descripcion,
+            estado: "Pendiente",
             fechaLimite,
-            estado: ""
         };
         set((state) => ({
             tareas: [...state.tareas, nuevaTarea]
@@ -45,22 +45,22 @@ export const tareaStore = create<ITareaStore>((set) => ({
     listarTareas: () => tareaStore.getState().tareas,
 
     //Editar tarea
-    editarTarea: (tareaEditada) => set((state) => {
-        const arregloTareas = state.tareas.map(
-            (tarea) => tarea.id === tareaEditada.id
-                ? { ...tarea, ...tareaEditada }
-                : tarea
-        );
-        return { tareas: arregloTareas };
-    }),
+    editarTarea: (tareaActualizada) => {
+        set((state) => ({
+            tareas: state.tareas.map((tarea) =>
+                tarea.id === tareaActualizada.id ? tareaActualizada : tarea
+            ),
+        }));
+    },
 
     //Eliminar tarea
-    eliminarUnaTarea: (idTarea) => set((state) => {
-        const arregloTareas = state.tareas.filter(
-            (tarea) => tarea.id !== idTarea
-        );
-        return { tareas: arregloTareas }
-    }),
+    eliminarUnaTarea: (idTarea) => {
+        set((state) =>
+        ({
+            tareas: state.tareas.filter(
+                (tarea) => tarea.id !== idTarea)
+        }));
+    },
 
     //Cambiar estado de tarea
     cambiarEstadoDeTarea: (idTarea, nuevoEstado) => set((state) => {

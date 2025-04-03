@@ -1,46 +1,53 @@
 {
-    "backlog": {
+  "backlog": {
+    "tareas": [
+      {
+        "id": "1743637839584",
+        "titulo": "Tarea backlog ",
+        "descripcion": "descripción",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-04-26"
+      },
+      {
+        "id": "1743637860034",
+        "titulo": "Tarea backlog 2",
+        "descripcion": "descripción 2",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-04-20"
+      },
+      {
+        "id": "1743637880016",
+        "titulo": "Tarea backlog 3",
+        "descripcion": "descrip 3",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-05-15"
+      }
+    ]
+  },
+  "sprintList": {
+    "sprints": [
+      {
+        "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
+        "fechaInicio": "2025-03-04",
+        "fechaCierre": "2025-03-11",
+        "nombre": "Sprint 122",
         "tareas": [
-            {
-                "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-                "titulo": "Tarea backlog",
-                "descripcion": "Descripcion tarea backlog",
-                "estado": "pendiente",
-                "fechaLimite": "2025-03-05"
-            },
-            {
-                "id": "abec0ad5-87e0-4265-8ccf-72bd1f20b93e",
-                "titulo": "Tarea backlog 2",
-                "descripcion": "Descripcion tarea backlog 2",
-                "estado": "pendiente",
-                "fechaLimite": "2025-03-12"
-            }
+          {
+            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
+            "titulo": "Tarea 2",
+            "descripcion": "Estamos aca",
+            "estado": "pendiente",
+            "fechaLimite": "2025-03-06"
+          },
+          {
+            "id": "c3699dec-3d1a-12ff-a94d-97d416eac064",
+            "titulo": "Tarea 3",
+            "descripcion": "Estamos aca",
+            "estado": "pendiente",
+            "fechaLimite": "2025-03-20"
+          }
         ]
-    },
-    "sprintList": {
-        "sprints": [
-            {
-                "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
-                "fechaInicio": "2025-03-04",
-                "fechaCierre": "2025-03-11",
-                "nombre": "Sprint 122",
-                "tareas": [
-                    {
-                        "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-                        "titulo": "Tarea 2",
-                        "descripcion": "Estamos aca",
-                        "estado": "pendiente",
-                        "fechaLimite": "2025-03-06"
-                    },
-                    {
-                        "id": "c3699dec-3d1a-12ff-a94d-97d416eac064",
-                        "titulo": "Tarea 3",
-                        "descripcion": "Estamos aca",
-                        "estado": "pendiente",
-                        "fechaLimite": "2025-03-20"
-                    }
-                ]
-            }
-        ]
-    }
+      }
+    ]
+  }
 }
