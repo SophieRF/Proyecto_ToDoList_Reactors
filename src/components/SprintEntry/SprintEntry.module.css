@@ -1,0 +1,12 @@
+.mainDiv{
+    display:flex;
+    flex-direction: row;
+    border: 2px black solid;
+    padding: 0.85rem;
+}
+
+.divBotones{
+    display: flex;
+    flex-direction: row;
+    gap:.2rem
+}

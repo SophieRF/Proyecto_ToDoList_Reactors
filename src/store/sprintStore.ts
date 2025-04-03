@@ -5,7 +5,7 @@ interface ISprintStore {
     sprints: ISprint[]
     sprintActiva: ISprint | null
     setSprintActiva: (sprintActiva: ISprint | null) => void;
-    crearSprint: (nombre: string, fechaInicio: string, fechaCierre: string) => void;
+    crearSprint: (nombre: string, fechaInicio: string, fechaCierre: string) => ISprint;
     listarSprints: (sprints: ISprint[]) => void;
     editarSprint: (sprintEditada: ISprint) => void;
     eliminarSprint: (sprintId: string) => void;
@@ -16,24 +16,26 @@ export const sprintStore = create<ISprintStore>((set) => ({
     sprintActiva: null,
 
     //Setear Sprint Activa
-    setSprintActiva: (sprintActiva) => set({ sprintActiva }),
+    setSprintActiva: (sprintActivaInput) => set({ sprintActiva:sprintActivaInput }),
 
     //Crear un Sprint
-    crearSprint: (nombre, fechaInicio, fechaCierre) => set((state) => {
-        const nuevoSprint = {
+    crearSprint: (nombre, fechaInicio, fechaCierre) => {
+        const nuevoSprint:ISprint = {
             id: Date.now().toString(),
             nombre,
             fechaInicio,
             fechaCierre,
             tareas: []
         };
-        return { sprints: [...state.sprints, nuevoSprint] };
-    }),
+        set((state) => ({
+            sprints:[...state.sprints, nuevoSprint]
+        }))
+        return nuevoSprint;
+    },
 
     //Listar Sprints
-    listarSprints: () => (state) => {
-        return { sprints: [...state.sprints] };
-    },
+    listarSprints: (sprints) => set({ sprints }),
+
 
     //Editar Sprint
     editarSprint: (sprintEditada) => set((state) => {

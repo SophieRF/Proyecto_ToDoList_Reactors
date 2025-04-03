@@ -1,6 +1,6 @@
 .sidebar {
     width: 250px;
-    height: 100vh;
+    height: auto;
     background-color: #2d2d2d; 
     color: white;
     padding: 16px;
@@ -22,19 +22,3 @@
 .backlogButton:hover {
     background-color: #e09e67; 
 }
-
-.list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.listItem {
-    background-color: #535252; 
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 8px;
-}
-
-.listItem:hover {
-    background-color: #505050; }

@@ -2,6 +2,13 @@
   "backlog": {
     "tareas": [
       {
+        "id": "1743623662212",
+        "titulo": "NuevaTareaCreada231",
+        "descripcion": "descrip",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-04-22"
+      },
+      {
         "id": "1743637839584",
         "titulo": "Tarea backlog ",
         "descripcion": "descripción",
@@ -21,6 +28,13 @@
         "descripcion": "descrip 3",
         "estado": "Pendiente",
         "fechaLimite": "2025-05-15"
+      },
+      {
+        "id": "1743643154046",
+        "titulo": "otra tarea",
+        "descripcion": "esto hace algo",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-04-29"
       }
     ]
   },

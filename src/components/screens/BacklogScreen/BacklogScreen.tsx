@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Modal from "../../ui/Modal/Modal";
-import TareasList from "../../ui/TareasList/TareasList";
+import Modal from "../../../ui/Modal/Modal";
+import TareasList from "../../../ui/TareasList/TareasList";
 import styles from "./BacklogScreen.module.css"
-import { tareaStore } from "../../store/tareaStore";
+import { tareaStore } from "../../../store/tareaStore";
 
 
 export default function BacklogScreen() {
