@@ -1,17 +1,20 @@
 import { useShallow } from "zustand/shallow";
 import { tareaStore } from "../store/tareaStore";
 import { ITarea } from "../types/ITarea";
-import { createTareaController, deleteTareaController, getTareasController, updateTareaController } from "../data/backlogController";
+import { createTareaController, deleteTareaController, getTareasController, updateEstadoTareaController, updateTareaController } from "../data/backlogController";
 
 export const useTareas = () => {
 
-    const { tareas, setArrayTareas, crearTarea, editarTarea, eliminarUnaTarea } = tareaStore(
+    const {
+        tareas, setArrayTareas, crearTarea, editarTarea, eliminarUnaTarea, cambiarEstadoTarea
+    } = tareaStore(
         useShallow((state) => ({
             tareas: state.tareas,
             setArrayTareas: state.setArrayTareas,
             crearTarea: state.crearTarea,
             editarTarea: state.editarTarea,
-            eliminarUnaTarea: state.eliminarUnaTarea
+            eliminarUnaTarea: state.eliminarUnaTarea,
+            cambiarEstadoTarea: state.cambiarEstadoDeTarea
         }))
     )
 
@@ -51,7 +54,25 @@ export const useTareas = () => {
         } catch (error) {
             console.log(`Error al eliminar la tarea: ${error}`)
         }
-    }
+    };
+
+    const updateEstadoTarea = async (id: string, nuevoEstado: string) => {
+        const tareaPrev = tareas.find((t) => t.id === id);
+
+        if (!tareaPrev) {
+            console.warn("Tarea no encontrada");
+            return;
+        }
+        cambiarEstadoTarea(id, nuevoEstado);
+
+        try {
+            await updateEstadoTareaController(id, nuevoEstado);
+
+        } catch (error) {
+            cambiarEstadoTarea(id, tareaPrev.estado);
+            console.error(`Error al actualizar el estado de la tarea: ${error}`);
+        }
+    };
 
     return {
         tareas,
@@ -59,6 +80,9 @@ export const useTareas = () => {
         createTarea,
         updateTarea,
         deleteTarea,
+        updateEstadoTarea
     }
+};
 
-}
+
+

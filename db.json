@@ -57,11 +57,18 @@
             "id": "c3699dec-3d1a-12ff-a94d-97d416eac064",
             "titulo": "Tarea 3",
             "descripcion": "Estamos aca",
-            "estado": "pendiente",
+            "estado": "en progreso",
             "fechaLimite": "2025-03-20"
           }
         ],
         "fechaLimite": "2025-03-24"
+      },
+      {
+        "id": "1743850364318",
+        "nombre": "",
+        "fechaInicio": "",
+        "fechaCierre": "",
+        "tareas": []
       }
     ]
   }

@@ -11,7 +11,7 @@ export const getTareasController = async (): Promise<
         const response = await axios.get<{ tareas: ITarea[] }>(ENDPOINTS.BACKLOG);
         return response.data.tareas;
     } catch (error) {
-        console.log("Problemas en getTareasController", error); 
+        console.log("Problemas en getTareasController", error);
     }
 };
 
@@ -48,7 +48,7 @@ export const updateTareaController = async (
 
             await putBacklog(result);
         }
-        return tareaActualizada; 
+        return tareaActualizada;
     } catch (error) {
         console.log("Error en updateTareaController", error);
     }
@@ -70,3 +70,32 @@ export const deleteTareaController = async (idTareaAEliminar: string) => {
         console.log("Error en deleteTareaController", error);
     }
 };
+
+    //Cambiar estado de la Tarea
+    export const updateEstadoTareaController = async (
+        id: string,
+        nuevoEstado: string
+    ): Promise<ITarea | undefined> => {
+        try {
+            const tareasBd = await getTareasController();
+
+            if (tareasBd) {
+                const tareaActual = tareasBd.find((t) => t.id === id);
+
+                if (!tareaActual) {
+                    console.error("Tarea no encontrada");
+                    return;
+                }
+
+                const tareaActualizada: ITarea = {
+                    ...tareaActual,
+                    estado: nuevoEstado,
+                };
+
+                await updateTareaController(tareaActualizada);
+                return tareaActualizada;
+            }
+        } catch (error) {
+            console.log("Error en cambiarEstadoTareaController", error);
+        }
+    };

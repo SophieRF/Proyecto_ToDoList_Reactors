@@ -6,12 +6,14 @@ import { tareaStore } from '../../store/tareaStore'
 import { useTareas } from '../../hooks/useTareas'
 
 interface ITareaEntryProps {
-  tarea: ITarea
+  tarea: ITarea;
+  variant?: 'default' | 'board';
 }
 
-export default function TareaEntry({ tarea }: ITareaEntryProps) {
+export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const [openModal, setOpenModal] = useState(false);
-  const [openModalSee, setOpenModalSee] = useState(false)
+  const [openModalSee, setOpenModalSee] = useState(false);
+
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)
   const { deleteTarea } = useTareas();
 
@@ -35,15 +37,39 @@ export default function TareaEntry({ tarea }: ITareaEntryProps) {
     deleteTarea(tarea.id!);
   };
 
-
-
   return (
-    <div className={styles.mainDiv}>
+    <div className={variant === 'board' ? styles.boardStyle : styles.backlogStyle}>
+
       <div>
-        <h1>{tarea.titulo}</h1>
-        <p>{tarea.descripcion}</p>
-        <p>{tarea.fechaLimite}</p>
+        <div>
+          <h1 className={styles.title}>{tarea.titulo}</h1>
+          <p>{tarea.descripcion}</p>
+          <p>{tarea.fechaLimite}</p>
+        </div>
+
+        {variant === 'board' && (
+          <div className={styles.estadoWrapper}>
+            <button className={styles.botonEnviar}>
+              Enviar al Backlog
+            </button>
+
+            <div className={styles.dropdownEstado}>
+        <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
+        <select
+          id={`estado-${tarea.id}`}
+          name="estado"
+          value={tarea.estado}
+        >
+          <option value="Pendiente">Pendiente</option>
+          <option value="En progreso">En progreso</option>
+          <option value="Terminada">Terminada</option>
+        </select>
       </div>
+
+          </div>
+        )}
+      </div>
+
       <div className={styles.divBotones}>
         <div>
           <button
@@ -65,7 +91,7 @@ export default function TareaEntry({ tarea }: ITareaEntryProps) {
         </div>
         <div>
           <button
-            className= {styles.botonDelete}
+            className={styles.botonDelete}
             onClick={handleDelete}>
             <span className="material-symbols-outlined">
               delete

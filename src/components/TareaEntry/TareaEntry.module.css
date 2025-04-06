@@ -1,4 +1,15 @@
-.mainDiv {
+.boardStyle {
+    width: 44vh;
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.backlogStyle {
     width: 120vh;
     background: #fff;
     border-radius: 12px;
@@ -8,11 +19,68 @@
     justify-content: space-between;
 }
 
+.title {
+    font-size: 26px;
+}
+
+.estadoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.botonEnviar {
+    width: 100%;
+    border: none;
+    padding: 5.5px 6px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s, transform 0.2s;
+    background-color: #FFAD69;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    color: #000000;
+}
+
+.botonEnviar:hover {
+    transform: scale(1.05);
+    background-color: #ebbc93;
+}
+
+
+.dropdownEstado select {
+    width: 8.5vw;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownEstado select:hover {
+    background-color: #ebbc93;
+}
+
+.dropdownEstado select {
+    background-color: #FFAD69;
+}
+
+.dropdownEstado label {
+    font-weight: bold;
+    margin-right: 0.3rem;
+    font-size: 0.9rem;
+}
+
+
 .divBotones {
     display: flex;
     justify-content: space-between;
-    gap: 0.5rem; 
-    margin-top: auto;  
+    gap: 0.3rem;
+    margin-top: auto;
 }
 
 .divBotones div {
@@ -20,28 +88,30 @@
 }
 
 .divBotones button {
+    padding: 4px 4px 0 4px;
+    ;
     width: 100%;
-    padding-top: 0.55rem;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .botonVisibility {
-    background: #4fb842;
-    color: black;
+    background: #3f8b35;
+    color: rgb(255, 255, 255);
 }
 
 .botonEdit {
-    background: #f3ff4a;
-    color: black;
+    background: #5c60a5;
+    color: rgb(255, 255, 255);
 }
 
 .botonDelete {
     background: #dd482e;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .divBotones button:hover {
