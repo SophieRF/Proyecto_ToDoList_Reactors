@@ -1,11 +1,10 @@
 import axios from "axios";
 import { ISprint } from "../types/ISprint";
 import { ISprintBar } from "../types/ISprintBar";
-import { ENDPOINTS } from "../utils/constantes";
 
 export const putSprintBar= async (sprints:ISprint[]) => {
     try{
-        const response = await axios.put<ISprintBar>(ENDPOINTS.SPRINTS, {
+        const response = await axios.put<ISprintBar>(import.meta.env.VITE_SPRINTS_ENDPOINT, {
             sprints: sprints,
         });
 

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { ITarea } from "../types/ITarea";
-import { ENDPOINTS } from "../utils/constantes";
 import { putBacklog } from "../http/backlog";
 
 //Obtener tareas
@@ -8,7 +7,7 @@ export const getTareasController = async (): Promise<
     ITarea[] | undefined
 > => {
     try {
-        const response = await axios.get<{ tareas: ITarea[] }>(ENDPOINTS.BACKLOG);
+        const response = await axios.get<{ tareas: ITarea[] }>(import.meta.env.VITE_BACKLOG_ENDPOINT);
         return response.data.tareas;
     } catch (error) {
         console.log("Problemas en getTareasController", error);

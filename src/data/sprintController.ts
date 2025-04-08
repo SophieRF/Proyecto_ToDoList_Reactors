@@ -1,11 +1,10 @@
 import axios from "axios"
-import { ENDPOINTS } from "../utils/constantes"
 import { ISprint } from "../types/ISprint"
 import { putSprintBar } from "../http/sprintsBar";
 
 export const getSprintsController = async():Promise<ISprint[]| undefined> => {
     try{
-        const response=await axios.get<{sprints:ISprint[]}>(ENDPOINTS.SPRINTS);
+        const response=await axios.get<{sprints:ISprint[]}>(import.meta.env.VITE_SPRINTS_ENDPOINT);
         return response.data.sprints;
     }catch(err){
         console.log("Hubo un problema al obtener los sprints", err)

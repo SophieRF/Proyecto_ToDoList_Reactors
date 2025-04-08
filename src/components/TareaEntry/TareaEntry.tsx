@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { ITarea } from '../../types/ITarea'
 import Modal from '../../ui/Modal/Modal'
 import styles from './TareaEntry.module.css'
 import { tareaStore } from '../../store/tareaStore'
 import { useTareas } from '../../hooks/useTareas'
+import { Form } from 'react-bootstrap'
 
 interface ITareaEntryProps {
   tarea: ITarea;
@@ -13,9 +14,8 @@ interface ITareaEntryProps {
 export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const [openModal, setOpenModal] = useState(false);
   const [openModalSee, setOpenModalSee] = useState(false);
-
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)
-  const { deleteTarea } = useTareas();
+  const { updateTarea, deleteTarea, getTareas } = useTareas();
 
   const handleOpenModalSee = () => {
     setTareaActiva(tarea)
@@ -37,6 +37,12 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     deleteTarea(tarea.id!);
   };
 
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    const updatedTarea = { ...tarea, [name]: value };
+    updateTarea(updatedTarea);
+    getTareas()
+  };
   return (
     <div className={variant === 'board' ? styles.boardStyle : styles.backlogStyle}>
 
@@ -55,15 +61,16 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
 
             <div className={styles.dropdownEstado}>
         <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
-        <select
+        <Form.Select
           id={`estado-${tarea.id}`}
           name="estado"
           value={tarea.estado}
+          onChange={handleChange}
         >
           <option value="Pendiente">Pendiente</option>
           <option value="En progreso">En progreso</option>
           <option value="Terminada">Terminada</option>
-        </select>
+        </Form.Select>
       </div>
 
           </div>
