@@ -59,6 +59,13 @@
             "descripcion": "Estamos aca",
             "estado": "en progreso",
             "fechaLimite": "2025-03-20"
+          },
+          {
+            "id": "1744314174356",
+            "titulo": "nuevaTarea123",
+            "descripcion": "Descripcion123",
+            "estado": "Terminada",
+            "fechaLimite": "2025-04-10"
           }
         ],
         "fechaLimite": "2025-03-24"
