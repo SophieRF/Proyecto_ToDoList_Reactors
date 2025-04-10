@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { ISprint } from "../types/ISprint.ts";
+import { ITarea } from "../types/ITarea.ts";
 
 interface ISprintStore {
     sprints: ISprint[]
@@ -8,6 +9,7 @@ interface ISprintStore {
     crearSprint: (nombre: string, fechaInicio: string, fechaCierre: string) => ISprint;
     listarSprints: (sprints: ISprint[]) => void;
     editarSprint: (sprintEditada: ISprint) => void;
+    agregarTareaASprint:(sprintId:string, tarea:ITarea) =>void;
     eliminarSprint: (sprintId: string) => void;
 }
 
@@ -47,6 +49,12 @@ export const sprintStore = create<ISprintStore>((set) => ({
         return { sprints: listaSprintsActualizada };
     }),
 
+    // Agregar una tarea a un sprint por id
+    agregarTareaASprint:(sprintId, nuevaTarea) => set((state) => {
+        const sprints=state.sprints.map((sprint) => sprint.id===sprintId ? {...sprint, tareas:[...sprint.tareas, nuevaTarea]}: sprint)
+        return {sprints}
+    }
+),
     //Eliminar Sprint
     eliminarSprint: (sprintId) => set((state) => {
         const arregloSprints = state.sprints.filter((sprint) =>

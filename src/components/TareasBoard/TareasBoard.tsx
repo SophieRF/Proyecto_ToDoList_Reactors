@@ -1,40 +1,38 @@
-import { ISprint } from "../../types/ISprint"
+import { sprintStore } from "../../store/sprintStore";
 import TareaEntry from "../TareaEntry/TareaEntry"
 import styles from "./TareasBoard.module.css"
 
-interface ITareasBoardProps {
-  sprint: ISprint | null;
-}
 
-export default function TareasBoard({ sprint }: ITareasBoardProps) {
-  const tareasPendientes = sprint?.tareas.filter(t => t.estado.toLowerCase() === "pendiente") ?? [];
-  const tareasEnProgreso = sprint?.tareas.filter(t => t.estado.toLowerCase() === "en progreso") ?? [];
-  const tareasTerminadas = sprint?.tareas.filter(t => t.estado.toLowerCase() === "terminada") ?? [];
+export default function TareasBoard() {
+  const activeSprint=sprintStore((state) => state.sprintActiva);
+  const tareasPendientes = activeSprint?.tareas.filter(t => t.estado.toLowerCase() === "pendiente") ?? [];
+  const tareasEnProgreso = activeSprint?.tareas.filter(t => t.estado.toLowerCase() === "en progreso") ?? [];
+  const tareasTerminadas = activeSprint?.tareas.filter(t => t.estado.toLowerCase() === "terminada") ?? [];
 
   return (
     <div className={styles.mainDiv}>
-      
-      <div className={styles.tareasContainer}>
+      {activeSprint ? <>
+        <div className={styles.tareasContainer}>
         <h1 className={styles.pendienteTitle}>Pendiente</h1>
-        {tareasPendientes.map(tarea => (
+        {tareasPendientes.length >0 ? tareasPendientes.map(tarea => (
           <TareaEntry key={tarea.id} tarea={tarea} variant="board" />
-        ))}
+        )): <p>No hay tareas pendientes</p>}
       </div>
 
       <div className={styles.tareasContainer}>
         <h1 className={styles.enProgresoTitle}>En progreso</h1>
-        {tareasEnProgreso.map(tarea => (
+        {tareasEnProgreso.length > 0 ? tareasEnProgreso.map(tarea => (
           <TareaEntry key={tarea.id} tarea={tarea} variant="board" />
-        ))}
+        )): <p>No hay tareas en progreso</p>}
       </div>
 
       <div className={styles.tareasContainer}>
         <h1 className={styles.terminadasTitle}>Terminadas</h1>
-        {tareasTerminadas.map(tarea => (
+        {tareasTerminadas.length > 0 ? tareasTerminadas.map(tarea => (
           <TareaEntry key={tarea.id} tarea={tarea} variant="board" />
-        ))}
+        )): <p>No hay tareas terminadas</p>}
       </div>
-
+      </>:<h1>No se ha seleccionado una Sprint</h1>}
     </div>
   )
 }

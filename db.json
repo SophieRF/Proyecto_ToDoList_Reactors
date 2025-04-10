@@ -62,6 +62,35 @@
           }
         ],
         "fechaLimite": "2025-03-24"
+      },
+      {
+        "id": "1744284804656",
+        "nombre": "Sprint 412",
+        "fechaInicio": "2025-04-10",
+        "fechaCierre": "2025-05-10",
+        "tareas": [
+          {
+            "id": "1744293095220",
+            "titulo": "nueva tarea 2312",
+            "descripcion": "holiii",
+            "estado": "Terminada",
+            "fechaLimite": "2025-04-30"
+          },
+          {
+            "id": "1744293203167",
+            "titulo": "muy importante",
+            "descripcion": "sdasdad",
+            "estado": "Pendiente",
+            "fechaLimite": "2025-04-28"
+          },
+          {
+            "id": "1744293405437",
+            "titulo": "otra más",
+            "descripcion": "kjhjryfghg",
+            "estado": "En progreso",
+            "fechaLimite": "2025-05-11"
+          }
+        ]
       }
     ]
   }

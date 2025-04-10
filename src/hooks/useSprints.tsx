@@ -7,12 +7,13 @@ import { useCallback } from "react"
 
 
 export const useSprints = () => {
-    const {sprints, listarSprints, crearSprint, editarSprint, eliminarSprint}=sprintStore(
+    const {sprints, listarSprints, crearSprint, editarSprint, agregarTareaASprint, eliminarSprint}=sprintStore(
         useShallow((state) => ({
             sprints:state.sprints,
             listarSprints:state.listarSprints,
             crearSprint:state.crearSprint,
             editarSprint:state.editarSprint,
+            agregarTareaASprint:state.agregarTareaASprint,
             eliminarSprint:state.eliminarSprint
         }))
     )
@@ -43,6 +44,25 @@ export const useSprints = () => {
         }
     }
 
+    const addTarea = async (idSprint:string, titulo:string, descripcion:string, estado:string, fechaLimite:string) => {
+        const nuevaTarea={id:Date.now().toString(), titulo, descripcion, estado, fechaLimite}
+        agregarTareaASprint(idSprint, nuevaTarea)
+        const sprintActual = sprints.find((s) => s.id === idSprint);
+    if (!sprintActual) return;
+
+    const sprintActualizado: ISprint = {
+      ...sprintActual,
+      tareas: [...sprintActual.tareas, nuevaTarea],
+    };
+
+    try {
+      await updateSprintController(sprintActualizado);
+    } catch (error) {
+      console.log("Error al guardar la tarea en el backend", error);
+      // Opcional: revertir si falla
+    }
+    }
+
     const deleteSprint = async (idSprint: string) => {
     
             eliminarSprint(idSprint);
@@ -58,6 +78,7 @@ export const useSprints = () => {
     getSprints,
     createSprint,
     updateSprint,
+    addTarea,
     deleteSprint
   }
 }

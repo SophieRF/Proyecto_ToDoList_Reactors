@@ -35,8 +35,10 @@ export const SprintEntry = ({sprint}: ISprintProps) => {
   const handleDelete = () => {
     deleteSprint(sprint.id!);
   };
+
+  
   return (
-    <div className={styles.mainDiv}>
+    <div className={styles.mainDiv} onClick={() => setSprintActivo(sprint)}>
         <div>
             <h1>{sprint.nombre}</h1>
             <p>{sprint.fechaInicio}</p>

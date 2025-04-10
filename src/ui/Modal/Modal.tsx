@@ -4,6 +4,8 @@ import styles from './Modal.module.css'
 import { useTareas } from '../../hooks/useTareas';
 import { tareaStore } from '../../store/tareaStore';
 import { Form } from 'react-bootstrap';
+import { useSprints } from '../../hooks/useSprints';
+import { sprintStore } from '../../store/sprintStore';
 
 interface IModalProps {
   activeTarea: ITarea | null,
@@ -21,7 +23,10 @@ const initialState: ITarea = {
 
 export default function Modal({ handleCloseModal, activeTarea, openModalSee }: IModalProps) {
   const [formValues, setFormValues] = useState<ITarea>(initialState);
-  const { createTarea, updateTarea } = useTareas();
+  const { updateTarea } = useTareas();
+  const {addTarea}=useSprints();
+  const activeSprint=sprintStore((state) =>state.sprintActiva );
+  const setTareaActiva = tareaStore((state) => state.setTareaActiva);
 
   useEffect(() => {
     if(activeTarea ){
@@ -33,19 +38,6 @@ export default function Modal({ handleCloseModal, activeTarea, openModalSee }: I
     
   }, [activeTarea])
 
-  /*
-    useEffect(() => {
-    if (activeTarea) {
-      setFormValues({ ...activeTarea });
-    } else {
-      setFormValues(initialState)
-    }
-
-  }, [activeTarea])
-*/
-  const setTareaActiva = tareaStore((state) => state.setTareaActiva);
-
-
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormValues((prev) => ({ ...prev, [`${name}`]: value }))
@@ -53,13 +45,14 @@ export default function Modal({ handleCloseModal, activeTarea, openModalSee }: I
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (activeTarea) {
+    if (activeTarea ) {
       updateTarea(formValues);
-    } else {
-      createTarea(formValues.titulo, formValues.descripcion, formValues.fechaLimite);
+    } else if(activeSprint){
+      addTarea(activeSprint.id!,formValues.titulo, formValues.descripcion, formValues.estado, formValues.fechaLimite);
     }
     setTareaActiva(null)
     handleCloseModal()
+
   }
 
   return (
