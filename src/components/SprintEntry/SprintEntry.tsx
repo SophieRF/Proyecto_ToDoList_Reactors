@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { ISprint } from "../../types/ISprint"
-import { ModalSprints } from "../../ui/ModalSprints/ModalSprints"
 import { sprintStore } from "../../store/sprintStore"
 import { useSprints } from "../../hooks/useSprints"
 import styles from './SprintEntry.module.css'
+import { ModalSprints } from "../ui/ModalSprints/ModalSprints"
 
 interface ISprintProps{
     sprint:ISprint

@@ -1,10 +1,10 @@
 
 import styles from "./SideBar.module.css";
-import { SprintList } from "../../ui/SprintList/SprintList";
 import { useState } from "react";
 import { sprintStore } from "../../store/sprintStore";
-import { ModalSprints } from "../../ui/ModalSprints/ModalSprints";
 import { useNavigate } from "react-router-dom";
+import { SprintList } from "../ui/SprintList/SprintList";
+import { ModalSprints } from "../ui/ModalSprints/ModalSprints";
 
 export const SideBar = () => {
   const navigate=useNavigate()

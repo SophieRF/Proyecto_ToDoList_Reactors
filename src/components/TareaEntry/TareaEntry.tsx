@@ -1,10 +1,10 @@
 import { ChangeEvent, useState } from 'react'
 import { ITarea } from '../../types/ITarea'
-import Modal from '../../ui/Modal/Modal'
 import styles from './TareaEntry.module.css'
 import { tareaStore } from '../../store/tareaStore'
 import { useTareas } from '../../hooks/useTareas'
 import { Form } from 'react-bootstrap'
+import Modal from '../ui/Modal/Modal'
 
 interface ITareaEntryProps {
   tarea: ITarea;
