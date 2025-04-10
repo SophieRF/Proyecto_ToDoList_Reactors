@@ -1,8 +1,8 @@
-import { useSprints } from '../../hooks/useSprints'
-import { ISprint } from '../../types/ISprint'
+import { useSprints } from '../../../hooks/useSprints'
+import { sprintStore } from '../../../store/sprintStore'
+import { ISprint } from '../../../types/ISprint'
 import styles from './ModalSprints.module.css'
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { sprintStore } from '../../store/sprintStore'
 
 interface IModalSprintProps{
     activeSprint:ISprint | null,

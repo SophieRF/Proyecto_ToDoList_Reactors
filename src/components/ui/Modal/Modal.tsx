@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { ITarea } from '../../types/ITarea'
 import styles from './Modal.module.css'
-import { useTareas } from '../../hooks/useTareas';
-import { tareaStore } from '../../store/tareaStore';
 import { Form } from 'react-bootstrap';
-import { useSprints } from '../../hooks/useSprints';
-import { sprintStore } from '../../store/sprintStore';
+import { ITarea } from '../../../types/ITarea';
+import { useTareas } from '../../../hooks/useTareas';
+import { useSprints } from '../../../hooks/useSprints';
+import { sprintStore } from '../../../store/sprintStore';
+import { tareaStore } from '../../../store/tareaStore';
 
 interface IModalProps {
   activeTarea: ITarea | null,

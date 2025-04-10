@@ -3,7 +3,8 @@ import { useSprints } from "../../../hooks/useSprints"
 import TareasBoard from "../../TareasBoard/TareasBoard"
 import styles from "./MainScreen.module.css"
 import { sprintStore } from "../../../store/sprintStore"
-import Modal from "../../../ui/Modal/Modal"
+import Modal from "../../ui/Modal/Modal"
+
 
 export const MainScreen = () => {
     const { sprints, getSprints } = useSprints()

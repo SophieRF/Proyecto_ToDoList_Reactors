@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import TareaEntry from '../../components/TareaEntry/TareaEntry'
-import { useTareas } from '../../hooks/useTareas'
 import styles from './Tareaslist.module.css'
+import { useTareas } from '../../../hooks/useTareas';
+import TareaEntry from '../../TareaEntry/TareaEntry';
 
 export default function TareasList() {
   const {getTareas, tareas} =useTareas();
