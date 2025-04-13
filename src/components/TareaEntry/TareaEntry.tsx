@@ -43,6 +43,7 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     updateTarea(updatedTarea);
     getTareas()
   };
+  
   return (
     <div className={variant === 'board' ? styles.boardStyle : styles.backlogStyle}>
 
