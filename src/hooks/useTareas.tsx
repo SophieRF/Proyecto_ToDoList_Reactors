@@ -1,7 +1,7 @@
 import { useShallow } from "zustand/shallow";
 import { tareaStore } from "../store/tareaStore";
 import { ITarea } from "../types/ITarea";
-import { createTareaController, deleteTareaController, getTareasController, updateEstadoTareaController, updateTareaController } from "../data/backlogController";
+import { createTareaController, deleteTareaController, getTareasController, updateEstadoTareaController, updateTareaController } from "../data/tareasController";
 
 export const useTareas = () => {
 
@@ -41,7 +41,7 @@ export const useTareas = () => {
             await updateTareaController(tareaEditada);
         } catch (error) {
             if (estadoPrevio) editarTarea(estadoPrevio);
-            console.log(`Error al editar la tarea: ${error}`)
+            console.log(`Error al editar la tarea: ${error}`);
         }
     };
 

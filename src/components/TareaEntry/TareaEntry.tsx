@@ -42,6 +42,7 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     const updatedTarea = { ...tarea, [name]: value };
     updateTarea(updatedTarea);
     getTareas()
+
   };
   return (
     <div className={variant === 'board' ? styles.boardStyle : styles.backlogStyle}>
