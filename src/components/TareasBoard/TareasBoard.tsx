@@ -8,7 +8,6 @@ export default function TareasBoard() {
   const tareasPendientes = activeSprint?.tareas.filter(t => t.estado.toLowerCase() === "pendiente") ?? [];
   const tareasEnProgreso = activeSprint?.tareas.filter(t => t.estado.toLowerCase() === "en progreso") ?? [];
   const tareasTerminadas = activeSprint?.tareas.filter(t => t.estado.toLowerCase() === "terminada") ?? [];
-
   return (
     <div className={styles.mainDiv}>
       {activeSprint ? <>

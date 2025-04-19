@@ -9,6 +9,27 @@
     margin-bottom: 1rem;
 }
 
+@keyframes bordeParpadeante {
+    0% {
+      border-color: red;
+      box-shadow: 0 0 8px red;
+    }
+    50% {
+      border-color: orange;
+      box-shadow: 0 0 8px orange;
+    }
+    100% {
+      border-color: red;
+      box-shadow: 0 0 8px red;
+    }
+  }
+  
+  .fechaCercana {
+    animation: bordeParpadeante 1.9s infinite;
+  border: 3px solid red;
+  border-radius: 12px;
+  }
+
 .backlogStyle {
     width: 120vh;
     background: #fff;
