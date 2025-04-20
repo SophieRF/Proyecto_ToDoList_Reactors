@@ -41,38 +41,38 @@
   "sprintList": {
     "sprints": [
       {
-        "id": "1744284804656",
-        "nombre": "Sprint 412",
-        "fechaInicio": "2025-04-10",
+        "id": "1435099876108",
+        "nombre": "Sprint 1",
+        "fechaInicio": "2025-04-3",
         "fechaCierre": "2025-05-10",
         "tareas": [
           {
-            "id": "1744293095220",
-            "titulo": "nueva tarea 2312",
-            "descripcion": "holiii",
-            "estado": "Terminada",
-            "fechaLimite": "2025-05-20"
-          },
-          {
-            "id": "1744293203167",
-            "titulo": "muy importante",
-            "descripcion": "sdasdad",
+            "id": "1745156459360",
+            "titulo": "tareaSprint1",
+            "descripcion": "una tarea del sprint 1",
             "estado": "Pendiente",
-            "fechaLimite": "2025-04-21"
+            "fechaLimite": "2025-05-08"
           },
           {
-            "id": "1744293405437",
-            "titulo": "otra más",
-            "descripcion": "kjhjryfghg",
-            "estado": "En progreso",
-            "fechaLimite": "2025-05-11"
+            "id": "1745156510186",
+            "titulo": "NuevaTarea",
+            "descripcion": "una nueva tarea",
+            "estado": "En Progreso",
+            "fechaLimite": "2025-05-05"
           },
           {
-            "id": "1745095576330",
-            "titulo": "nueva tarea 231",
-            "descripcion": "gfkdjhsdkb",
-            "estado": "En progreso",
-            "fechaLimite": "2025-04-22"
+            "id": "1745156543410",
+            "titulo": "tareaSprint2",
+            "descripcion": "otra tarea",
+            "estado": "Terminada",
+            "fechaLimite": "2025-04-19"
+          },
+          {
+            "id": "1745156573807",
+            "titulo": "tareaSprint",
+            "descripcion": "una nueva tarea",
+            "estado": "Pendiente",
+            "fechaLimite": "2025-05-03"
           }
         ]
       },

@@ -17,13 +17,13 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const [openModal, setOpenModal] = useState(false);
   const [openModalSee, setOpenModalSee] = useState(false);
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)
-  const activeSprint=sprintStore((state) => state.sprintActiva);
+  const activeSprint = sprintStore((state) => state.sprintActiva);
   const { getTareas } = useTareas();
-  const {editTarea, deleteTarea}=useSprints()
-  const fechaLimite=new Date(tarea.fechaLimite || "");
-  const tiempoRestante=fechaLimite.getTime()- Date.now();
-  const tresDiasEnMs=3*24*60*60*1000;
-  const tareaAVencer=tiempoRestante <= tresDiasEnMs && tiempoRestante > 0;
+  const { editTarea, deleteTarea } = useSprints()
+  const fechaLimite = new Date(tarea.fechaLimite || "");
+  const tiempoRestante = fechaLimite.getTime() - Date.now();
+  const tresDiasEnMs = 3 * 24 * 60 * 60 * 1000;
+  const tareaAVencer = tiempoRestante <= tresDiasEnMs && tiempoRestante > 0;
 
   const handleOpenModalSee = () => {
     setTareaActiva(tarea)
@@ -42,7 +42,7 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     setOpenModal(false)
   }
   const handleDelete = () => {
-    if(activeSprint){
+    if (activeSprint) {
       deleteTarea(activeSprint.id!, tarea.id!);
     }
   };
@@ -50,13 +50,16 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     const updatedTarea = { ...tarea, [name]: value };
-    if(activeSprint){
+    if (activeSprint) {
       editTarea(activeSprint, updatedTarea);
-    getTareas()
+      getTareas()
     }
   };
   return (
-    <div className={`${variant === 'board' ? styles.boardStyle : styles.backlogStyle} ${tareaAVencer ? styles.fechaCercana : ''}`}>
+    <div
+      className={`${variant === 'board' ? styles.boardStyle : styles.backlogStyle} 
+    ${tareaAVencer ? styles.fechaCercana : ''}`}
+    >
       <div>
         <div>
           <h1 className={styles.title}>{tarea.titulo}</h1>
@@ -71,18 +74,18 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
             </button>
 
             <div className={styles.dropdownEstado}>
-        <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
-        <Form.Select
-          id={`estado-${tarea.id}`}
-          name="estado"
-          value={tarea.estado}
-          onChange={handleChange}
-        >
-          <option value="Pendiente">Pendiente</option>
-          <option value="En progreso">En progreso</option>
-          <option value="Terminada">Terminada</option>
-        </Form.Select>
-      </div>
+              <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
+              <Form.Select
+                id={`estado-${tarea.id}`}
+                name="estado"
+                value={tarea.estado}
+                onChange={handleChange}
+              >
+                <option value="Pendiente">Pendiente</option>
+                <option value="En progreso">En progreso</option>
+                <option value="Terminada">Terminada</option>
+              </Form.Select>
+            </div>
 
           </div>
         )}
@@ -118,6 +121,6 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
         </div>
       </div>
       {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={tarea} openModalSee={openModalSee} />}
-      </div>
+    </div>
   )
 }

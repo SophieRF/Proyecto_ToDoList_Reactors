@@ -11,24 +11,26 @@
 
 @keyframes bordeParpadeante {
     0% {
-      border-color: red;
-      box-shadow: 0 0 8px red;
+        border-color: red;
+        box-shadow: 0 0 8px red;
     }
+
     50% {
-      border-color: orange;
-      box-shadow: 0 0 8px orange;
+        border-color: orange;
+        box-shadow: 0 0 8px orange;
     }
+
     100% {
-      border-color: red;
-      box-shadow: 0 0 8px red;
+        border-color: red;
+        box-shadow: 0 0 8px red;
     }
-  }
-  
-  .fechaCercana {
+}
+
+.fechaCercana {
     animation: bordeParpadeante 1.9s infinite;
-  border: 3px solid red;
-  border-radius: 12px;
-  }
+    border: 3px solid red;
+    border-radius: 12px;
+}
 
 .backlogStyle {
     width: 120vh;
@@ -69,7 +71,6 @@
     transform: scale(1.05);
     background-color: #ebbc93;
 }
-
 
 .dropdownEstado select {
     width: 8.5vw;
