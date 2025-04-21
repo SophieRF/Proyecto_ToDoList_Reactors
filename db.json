@@ -66,13 +66,7 @@
             "descripcion": "2384uwq",
             "estado": "Terminada",
             "fechaLimite": "2025-04-01"
-          },
-          {
-            "id": "1745236539403",
-            "titulo": "otraTarea",
-            "descripcion": "asd asd",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-30"
+
           }
         ]
       }
