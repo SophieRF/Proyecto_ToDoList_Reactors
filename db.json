@@ -41,42 +41,6 @@
   "sprintList": {
     "sprints": [
       {
-        "id": "1435099876108",
-        "nombre": "Sprint 1",
-        "fechaInicio": "2025-04-3",
-        "fechaCierre": "2025-05-10",
-        "tareas": [
-          {
-            "id": "1745156459360",
-            "titulo": "tareaSprint1",
-            "descripcion": "una tarea del sprint 1",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-08"
-          },
-          {
-            "id": "1745156510186",
-            "titulo": "NuevaTarea",
-            "descripcion": "una nueva tarea",
-            "estado": "En Progreso",
-            "fechaLimite": "2025-05-05"
-          },
-          {
-            "id": "1745156543410",
-            "titulo": "tareaSprint2",
-            "descripcion": "otra tarea",
-            "estado": "Terminada",
-            "fechaLimite": "2025-04-19"
-          },
-          {
-            "id": "1745156573807",
-            "titulo": "tareaSprint",
-            "descripcion": "una nueva tarea",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-03"
-          }
-        ]
-      },
-      {
         "id": "1745095036108",
         "nombre": "otro sprint",
         "fechaInicio": "2025-04-19",
