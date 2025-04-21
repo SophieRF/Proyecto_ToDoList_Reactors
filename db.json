@@ -54,76 +54,25 @@
             "fechaLimite": "2025-04-10"
           },
           {
-<<<<<<< HEAD
-            "id": "1744551045310",
-            "titulo": "tareaSprint",
-            "descripcion": "descripción tareaSprint bla bla bla",
-            "estado": "",
-            "fechaLimite": "2025-04-30"
-          },
-          {
-            "id": "1744551116733",
-            "titulo": "Una Tarea Del Backlog",
-            "descripcion": "descripción Una Tarea Del Backlog",
-            "estado": "",
-            "fechaLimite": "2025-04-30"
-          },
-          {
-            "id": "1744551435303",
-            "titulo": "una tarea nueva",
-            "descripcion": "una tarea nueva bla bla",
-            "estado": "",
-            "fechaLimite": "2025-04-25"
-          }
-        ],
-        "fechaLimite": "2025-03-24"
-      },
-      {
-        "id": "1744284804656",
-        "nombre": "Sprint 412",
-        "fechaInicio": "2025-04-10",
-        "fechaCierre": "2025-05-10",
-        "tareas": [
-          {
-            "id": "1744293095220",
-            "titulo": "nueva tarea 2312",
-            "descripcion": "holiii",
-            "estado": "Terminada",
-            "fechaLimite": "2025-04-30"
-          },
-          {
-            "id": "1744293203167",
-            "titulo": "muy importante",
-            "descripcion": "sdasdad",
-=======
             "id": "1745096837762",
             "titulo": "holaaa",
             "descripcion": "kdgaldg",
->>>>>>> e6776d2474e49f5f6bde0c6bbbc85d4226dd38c5
             "estado": "Pendiente",
             "fechaLimite": "2025-04-22"
           },
           {
-<<<<<<< HEAD
-            "id": "1744293405437",
-            "titulo": "otra más",
-            "descripcion": "kjhjryfghg",
-            "estado": "En progreso",
-            "fechaLimite": "2025-05-11"
-          },
-          {
-            "id": "1744551224351",
-            "titulo": "nueva tarea pendiente",
-            "descripcion": "descripción bla bla bla",
-            "estado": "",
-            "fechaLimite": "2025-04-30"
-=======
             "id": "1745096855858",
             "titulo": "lkdsfkldflk",
             "descripcion": "2384uwq",
             "estado": "Terminada",
             "fechaLimite": "2025-04-01"
->>>>>>> e6776d2474e49f5f6bde0c6bbbc85d4226dd38c5
+          },
+          {
+            "id": "1745236539403",
+            "titulo": "otraTarea",
+            "descripcion": "asd asd",
+            "estado": "Pendiente",
+            "fechaLimite": "2025-05-30"
           }
         ]
       }
