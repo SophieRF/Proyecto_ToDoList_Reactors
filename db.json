@@ -11,7 +11,7 @@
       {
         "id": "1743637839584",
         "titulo": "Tarea backlog ",
-        "descripcion": "descripción",
+        "descripcion": "descripciónn",
         "estado": "Pendiente",
         "fechaLimite": "2025-04-26"
       },
@@ -87,20 +87,6 @@
             "descripcion": "una tarea nueva bla bla",
             "estado": "",
             "fechaLimite": "2025-04-25"
-          },
-          {
-            "id": "1744551499868",
-            "titulo": "nuevaTarea321",
-            "descripcion": "bla bla bla",
-            "estado": "",
-            "fechaLimite": "2025-04-25"
-          },
-          {
-            "id": "1744551534905",
-            "titulo": "nuevaTarea321",
-            "descripcion": "nueva tarea bla bla bla",
-            "estado": "",
-            "fechaLimite": "2025-04-25"
           }
         ],
         "fechaLimite": "2025-03-24"
@@ -131,6 +117,13 @@
             "descripcion": "kjhjryfghg",
             "estado": "En progreso",
             "fechaLimite": "2025-05-11"
+          },
+          {
+            "id": "1744551224351",
+            "titulo": "nueva tarea pendiente",
+            "descripcion": "descripción bla bla bla",
+            "estado": "",
+            "fechaLimite": "2025-04-30"
           }
         ]
       }
