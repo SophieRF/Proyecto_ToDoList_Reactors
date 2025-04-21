@@ -41,33 +41,20 @@
   "sprintList": {
     "sprints": [
       {
-        "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
-        "fechaInicio": "2025-02-25",
-        "fechaCierre": "2025-03-11",
-        "nombre": "Sprint 2312",
+        "id": "1745095036108",
+        "nombre": "otro sprint",
+        "fechaInicio": "2025-04-19",
+        "fechaCierre": "2025-05-11",
         "tareas": [
           {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 2",
-            "descripcion": "Estamos aca",
-            "estado": "pendiente",
-            "fechaLimite": "2025-03-06"
-          },
-          {
-            "id": "c3699dec-3d1a-12ff-a94d-97d416eac064",
-            "titulo": "Tarea 3",
-            "descripcion": "Estamos aca",
-            "estado": "en progreso",
-            "fechaLimite": "2025-03-20"
-          },
-          {
-            "id": "1744314174356",
-            "titulo": "nuevaTarea123",
-            "descripcion": "Descripcion123",
-            "estado": "Terminada",
+            "id": "1745095929214",
+            "titulo": "tarea 12314",
+            "descripcion": "daaaaaaaa",
+            "estado": "En Progreso",
             "fechaLimite": "2025-04-10"
           },
           {
+<<<<<<< HEAD
             "id": "1744551045310",
             "titulo": "tareaSprint",
             "descripcion": "descripción tareaSprint bla bla bla",
@@ -108,10 +95,16 @@
             "id": "1744293203167",
             "titulo": "muy importante",
             "descripcion": "sdasdad",
+=======
+            "id": "1745096837762",
+            "titulo": "holaaa",
+            "descripcion": "kdgaldg",
+>>>>>>> e6776d2474e49f5f6bde0c6bbbc85d4226dd38c5
             "estado": "Pendiente",
-            "fechaLimite": "2025-04-28"
+            "fechaLimite": "2025-04-22"
           },
           {
+<<<<<<< HEAD
             "id": "1744293405437",
             "titulo": "otra más",
             "descripcion": "kjhjryfghg",
@@ -124,6 +117,13 @@
             "descripcion": "descripción bla bla bla",
             "estado": "",
             "fechaLimite": "2025-04-30"
+=======
+            "id": "1745096855858",
+            "titulo": "lkdsfkldflk",
+            "descripcion": "2384uwq",
+            "estado": "Terminada",
+            "fechaLimite": "2025-04-01"
+>>>>>>> e6776d2474e49f5f6bde0c6bbbc85d4226dd38c5
           }
         ]
       }

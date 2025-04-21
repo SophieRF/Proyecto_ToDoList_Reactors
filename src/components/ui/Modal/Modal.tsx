@@ -2,7 +2,6 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import styles from './Modal.module.css'
 import { Form } from 'react-bootstrap';
 import { ITarea } from '../../../types/ITarea';
-import { useTareas } from '../../../hooks/useTareas';
 import { useSprints } from '../../../hooks/useSprints';
 import { sprintStore } from '../../../store/sprintStore';
 import { tareaStore } from '../../../store/tareaStore';
@@ -16,14 +15,14 @@ interface IModalProps {
 const initialState: ITarea = {
   titulo: "",
   descripcion: "",
-  estado: "",
+  estado: "Pendiente",
   fechaLimite: ""
 
 }
 
 export default function Modal({ handleCloseModal, activeTarea, openModalSee }: IModalProps) {
   const [formValues, setFormValues] = useState<ITarea>(initialState);
-  const { updateTarea } = useTareas();
+  const { editTarea } = useSprints();
   const {addTarea}=useSprints();
   const activeSprint=sprintStore((state) =>state.sprintActiva );
   const setTareaActiva = tareaStore((state) => state.setTareaActiva);
@@ -46,8 +45,9 @@ export default function Modal({ handleCloseModal, activeTarea, openModalSee }: I
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (activeTarea ) {
-      updateTarea(formValues);
+      editTarea(activeSprint!, formValues);
     } else if(activeSprint){
+      console.log(activeSprint.id, formValues.titulo, formValues.descripcion, formValues.estado, formValues.fechaLimite)
       addTarea(activeSprint.id!,formValues.titulo, formValues.descripcion, formValues.estado, formValues.fechaLimite);
     }
     setTareaActiva(null)
@@ -85,10 +85,10 @@ export default function Modal({ handleCloseModal, activeTarea, openModalSee }: I
               </div>
               <div>
                 <label>Estado:</label>
-                <Form.Select name='estado' onChange={handleChange} value={formValues?.estado}>
+                <Form.Select name='estado' onChange={handleChange} value={formValues.estado}>
                   <option value="Pendiente">Pendiente</option>
                   <option value="Terminada" >Terminada</option>
-                  <option value="En Progreso">En progreso</option>
+                  <option value="En Progreso">En Progreso</option>
                 </Form.Select>
               </div>
               <div className={styles.fechaInput}>
@@ -151,7 +151,7 @@ export default function Modal({ handleCloseModal, activeTarea, openModalSee }: I
                 <Form.Select name='estado' onChange={handleChange} value={formValues.estado}>
                   <option value="Pendiente">Pendiente</option>
                   <option value="Terminada">Terminada</option>
-                  <option value="En progreso">En progreso</option>
+                  <option value="En Progreso">En Progreso</option>
                 </Form.Select>
               </div>
               <div className={styles.fechaInput}>

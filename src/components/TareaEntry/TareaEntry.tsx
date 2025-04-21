@@ -5,6 +5,8 @@ import { tareaStore } from '../../store/tareaStore'
 import { useTareas } from '../../hooks/useTareas'
 import { Form } from 'react-bootstrap'
 import Modal from '../ui/Modal/Modal'
+import { useSprints } from '../../hooks/useSprints'
+import { sprintStore } from '../../store/sprintStore'
 
 interface ITareaEntryProps {
   tarea: ITarea;
@@ -15,7 +17,13 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const [openModal, setOpenModal] = useState(false);
   const [openModalSee, setOpenModalSee] = useState(false);
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)
-  const { updateTarea, deleteTarea, getTareas } = useTareas();
+  const activeSprint = sprintStore((state) => state.sprintActiva);
+  const { getTareas } = useTareas();
+  const { editTarea, deleteTarea } = useSprints()
+  const fechaLimite = new Date(tarea.fechaLimite || "");
+  const tiempoRestante = fechaLimite.getTime() - Date.now();
+  const tresDiasEnMs = 3 * 24 * 60 * 60 * 1000;
+  const tareaAVencer = tiempoRestante <= tresDiasEnMs && tiempoRestante > 0;
 
   const handleOpenModalSee = () => {
     setTareaActiva(tarea)
@@ -34,19 +42,25 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     setOpenModal(false)
   }
   const handleDelete = () => {
-    deleteTarea(tarea.id!);
+    if (activeSprint) {
+      deleteTarea(activeSprint.id!, tarea.id!);
+    }
   };
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     const updatedTarea = { ...tarea, [name]: value };
-    updateTarea(updatedTarea);
-    getTareas()
+    if (activeSprint) {
+      editTarea(activeSprint, updatedTarea);
+      getTareas()
+    }
   };
   
   return (
-    <div className={variant === 'board' ? styles.boardStyle : styles.backlogStyle}>
-
+    <div
+      className={`${variant === 'board' ? styles.boardStyle : styles.backlogStyle} 
+    ${tareaAVencer ? styles.fechaCercana : ''}`}
+    >
       <div>
         <div>
           <h1 className={styles.title}>{tarea.titulo}</h1>
@@ -61,18 +75,18 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
             </button>
 
             <div className={styles.dropdownEstado}>
-        <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
-        <Form.Select
-          id={`estado-${tarea.id}`}
-          name="estado"
-          value={tarea.estado}
-          onChange={handleChange}
-        >
-          <option value="Pendiente">Pendiente</option>
-          <option value="En progreso">En progreso</option>
-          <option value="Terminada">Terminada</option>
-        </Form.Select>
-      </div>
+              <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
+              <Form.Select
+                id={`estado-${tarea.id}`}
+                name="estado"
+                value={tarea.estado}
+                onChange={handleChange}
+              >
+                <option value="Pendiente">Pendiente</option>
+                <option value="En progreso">En progreso</option>
+                <option value="Terminada">Terminada</option>
+              </Form.Select>
+            </div>
 
           </div>
         )}
