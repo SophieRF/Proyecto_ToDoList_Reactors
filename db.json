@@ -4,7 +4,7 @@
       {
         "id": "1743623662212",
         "titulo": "NuevaTareaCreada",
-        "descripcion": "descripcion 123",
+        "descripcion": "descripcion ",
         "estado": "Terminada",
         "fechaLimite": "2025-04-22"
       },
@@ -48,7 +48,7 @@
         "tareas": [
           {
             "id": "1745095929214",
-            "titulo": "tarea 12314",
+            "titulo": "tarea 123",
             "descripcion": "daaaaaaaa",
             "estado": "Pendiente",
             "fechaLimite": "2025-04-10"
