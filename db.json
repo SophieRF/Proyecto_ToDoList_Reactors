@@ -3,7 +3,7 @@
     "tareas": [
       {
         "id": "1743623662212",
-        "titulo": "NuevaTareaCreada123",
+        "titulo": "NuevaTareaCreada",
         "descripcion": "descripcion 123",
         "estado": "Terminada",
         "fechaLimite": "2025-04-22"
@@ -35,13 +35,6 @@
         "descripcion": "Una nueva tarea",
         "estado": "Pendiente",
         "fechaLimite": "2025-05-25"
-      },
-      {
-        "id": "1745352448311",
-        "titulo": "otra nueva tarea",
-        "descripcion": "nueva tarea",
-        "estado": "Pendiente",
-        "fechaLimite": "2025-05-21"
       }
     ]
   },
