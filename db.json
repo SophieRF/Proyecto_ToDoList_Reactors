@@ -66,6 +66,13 @@
             "descripcion": "2384uwq",
             "estado": "Terminada",
             "fechaLimite": "2025-04-01"
+          },
+          {
+            "id": "1745363581133",
+            "titulo": "NuevaTarea",
+            "descripcion": "una tarea nueva",
+            "estado": "Pendiente",
+            "fechaLimite": "2025-05-20"
           }
         ]
       }
