@@ -5,8 +5,6 @@ import { ISprint } from "../types/ISprint"
 import { useCallback } from "react"
 import { ITarea } from "../types/ITarea"
 
-
-
 export const useSprints = () => {
     const {sprints, listarSprints, crearSprint, editarSprint, agregarTareaASprint, editarTareaDeSprint, eliminarTareaDeSprint, eliminarSprint}=sprintStore(
         useShallow((state) => ({
@@ -20,12 +18,13 @@ export const useSprints = () => {
             eliminarSprint:state.eliminarSprint
         }))
     )
-
+    //GET
     const getSprints = useCallback(async () => {
         const data = await getSprintsController();
         if (data) listarSprints(data)
     }, [listarSprints])
 
+    //POST
     const createSprint = async (nombre: string, fechaInicio: string, fechaCierre: string) => {
         const nuevoSprint = crearSprint(nombre, fechaInicio, fechaCierre);
         try {
@@ -35,6 +34,7 @@ export const useSprints = () => {
         }
     }
 
+    //UPDATE SPRINT
     const updateSprint = async (sprintEditado: ISprint) => {
         const estadoPrevio = sprints.find((el) => el.id === sprintEditado.id);
         editarSprint(sprintEditado)
@@ -47,7 +47,8 @@ export const useSprints = () => {
         }
     }
 
-    const addTarea = async (idSprint: string, titulo: string, descripcion: string, estado: string, fechaLimite: string) => {
+    //ADD TAREA SPRINT
+    const addTareaSprint = async (idSprint: string, titulo: string, descripcion: string, estado: string, fechaLimite: string) => {
         const nuevaTarea = { id: Date.now().toString(), titulo, descripcion, estado, fechaLimite }
         agregarTareaASprint(idSprint, nuevaTarea)
         const sprintActual = sprints.find((s) => s.id === idSprint);
@@ -65,7 +66,8 @@ export const useSprints = () => {
     }
     }
 
-    const editTarea = async (sprintActivo: ISprint, tareaEditada: ITarea) => {
+    //UPDATE TAREA SPRINT
+    const editTareaSprint = async (sprintActivo: ISprint, tareaEditada: ITarea) => {
         const estadoPrevio = sprintActivo?.tareas.find((el) => el.id === tareaEditada.id);
         
         if (sprintActivo) {
@@ -92,7 +94,8 @@ export const useSprints = () => {
         }
       };
       
-      const deleteTarea= async (idSprint:string, tareaId:string) => {
+      //DELETE TAREA SPRINT
+      const deleteTareaSprint= async (idSprint:string, tareaId:string) => {
         eliminarTareaDeSprint(idSprint, tareaId)
 
         try{
@@ -103,6 +106,7 @@ export const useSprints = () => {
 
       }
 
+    //DELETE SPRINT
     const deleteSprint = async (idSprint: string) => {
     
             eliminarSprint(idSprint);
@@ -118,9 +122,9 @@ export const useSprints = () => {
     getSprints,
     createSprint,
     updateSprint,
-    addTarea,
-    editTarea,
-    deleteTarea,
+    addTareaSprint,
+    editTareaSprint,
+    deleteTareaSprint,
     deleteSprint
   }
 }

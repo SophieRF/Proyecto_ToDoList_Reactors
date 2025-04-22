@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import styles from './Modal.module.css'
 import { Form } from 'react-bootstrap';
 import { ITarea } from '../../../types/ITarea';
+import { useTareas } from '../../../hooks/useTareas';
 import { useSprints } from '../../../hooks/useSprints';
 import { sprintStore } from '../../../store/sprintStore';
 import { tareaStore } from '../../../store/tareaStore';
@@ -10,6 +11,7 @@ interface IModalProps {
   activeTarea: ITarea | null,
   openModalSee: boolean,
   handleCloseModal: () => void
+  variant: 'default' | 'board'
 }
 
 const initialState: ITarea = {
@@ -20,21 +22,21 @@ const initialState: ITarea = {
 
 }
 
-export default function Modal({ handleCloseModal, activeTarea, openModalSee }: IModalProps) {
+export default function Modal({ handleCloseModal, activeTarea, openModalSee, variant }: IModalProps) {
   const [formValues, setFormValues] = useState<ITarea>(initialState);
-  const { editTarea } = useSprints();
-  const {addTarea}=useSprints();
-  const activeSprint=sprintStore((state) =>state.sprintActiva );
+  const { editTareaSprint, addTareaSprint } = useSprints();
+  const { updateTarea, createTarea } = useTareas();
+  const activeSprint = sprintStore((state) => state.sprintActiva);
   const setTareaActiva = tareaStore((state) => state.setTareaActiva);
 
   useEffect(() => {
-    if(activeTarea ){
-          setFormValues((prev) =>
+    if (activeTarea) {
+      setFormValues((prev) =>
         prev.id ? prev : activeTarea);
-    }else{
+    } else {
       setFormValues(initialState)
     }
-    
+
   }, [activeTarea])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -44,14 +46,33 @@ export default function Modal({ handleCloseModal, activeTarea, openModalSee }: I
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (activeTarea ) {
-      editTarea(activeSprint!, formValues);
-    } else if(activeSprint){
-      console.log(activeSprint.id, formValues.titulo, formValues.descripcion, formValues.estado, formValues.fechaLimite)
-      addTarea(activeSprint.id!,formValues.titulo, formValues.descripcion, formValues.estado, formValues.fechaLimite);
+
+    if (variant === 'board' && activeSprint) {
+      if (activeTarea) {
+        editTareaSprint(activeSprint, formValues);
+      } else {
+        addTareaSprint(
+          activeSprint.id!,
+          formValues.titulo,
+          formValues.descripcion,
+          formValues.estado,
+          formValues.fechaLimite
+        );
+      }
+    } else if (variant === 'default') {
+      if (activeTarea) {
+        updateTarea(formValues)
+      } else {
+        createTarea(
+          formValues.titulo,
+          formValues.descripcion,
+          formValues.fechaLimite
+        )
+      }
     }
-    setTareaActiva(null)
-    handleCloseModal()
+
+    setTareaActiva(null);
+    handleCloseModal();
 
   }
 

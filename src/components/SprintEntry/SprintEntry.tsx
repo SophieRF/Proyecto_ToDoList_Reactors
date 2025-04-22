@@ -5,15 +5,15 @@ import { useSprints } from "../../hooks/useSprints"
 import styles from './SprintEntry.module.css'
 import { ModalSprints } from "../ui/ModalSprints/ModalSprints"
 
-interface ISprintProps{
-    sprint:ISprint
+interface ISprintProps {
+  sprint: ISprint
 }
 
-export const SprintEntry = ({sprint}: ISprintProps) => {
+export const SprintEntry = ({ sprint }: ISprintProps) => {
   const [openModal, setOpenModal] = useState(false);
   const [openModalSee, setOpenModalSee] = useState(false);
-  const setSprintActivo=sprintStore((state) => state.setSprintActiva)
-  const {deleteSprint} = useSprints()
+  const setSprintActivo = sprintStore((state) => state.setSprintActiva)
+  const { deleteSprint } = useSprints()
 
   const handleOpenModalSee = () => {
     setSprintActivo(sprint)
@@ -36,26 +36,41 @@ export const SprintEntry = ({sprint}: ISprintProps) => {
     deleteSprint(sprint.id!);
   };
 
-  
+
   return (
     <div className={styles.mainDiv} onClick={() => setSprintActivo(sprint)}>
+      <h1>{sprint.nombre}</h1>
+      <div className={styles.flexDiv}>
         <div>
-            <h1>{sprint.nombre}</h1>
-            <p>{sprint.fechaInicio}</p>
-            <p>{sprint.fechaCierre}</p>
+
+          <p>{sprint.fechaInicio}</p>
+          <p>{sprint.fechaCierre}</p>
         </div>
         <div className={styles.divBotones}>
-        <div>
-          <button onClick={handleOpenModalSee}>Ver</button>
-        </div>
-        <div>
-          <button onClick={handleOpenModalEntry}>Editar</button>
-        </div>
-        <div>
-          <button onClick={handleDelete}>Borrar</button>
+          <button
+            className={styles.botonVisibility}
+            onClick={handleOpenModalSee}>
+            <span className="material-symbols-outlined">
+              visibility
+            </span>
+          </button>
+          <button
+            className={styles.botonEdit}
+            onClick={handleOpenModalEntry}>
+            <span className="material-symbols-outlined">
+              edit
+            </span>
+          </button>
+          <button
+            className={styles.botonDelete}
+            onClick={handleDelete}>
+            <span className="material-symbols-outlined">
+              delete
+            </span>
+          </button>
         </div>
       </div>
-      {openModal && <ModalSprints activeSprint={sprint} openModalSee={openModalSee} handleCloseModal={handleCloseModal}/>}
+      {openModal && <ModalSprints activeSprint={sprint} openModalSee={openModalSee} handleCloseModal={handleCloseModal} />}
     </div>
   )
 }

@@ -5,7 +5,6 @@ import styles from "./MainScreen.module.css"
 import { sprintStore } from "../../../store/sprintStore"
 import Modal from "../../ui/Modal/Modal"
 
-
 export const MainScreen = () => {
     const { sprints, getSprints } = useSprints()
     const [openModal, setOpenModal]= useState(false);
@@ -40,7 +39,7 @@ export const MainScreen = () => {
                     }
                 </div>
             </div>
-            {openModal && <Modal activeTarea={null} openModalSee={false} handleCloseModal={handleCloseModal}/>}
+            {openModal && <Modal activeTarea={null} openModalSee={false} handleCloseModal={handleCloseModal} variant="board"/>}
         </>
     )
 
