@@ -4,7 +4,6 @@
       {
         "id": "1743623662212",
         "titulo": "NuevaTareaCreada",
-        "descripcion": "descripcion 123",
         "estado": "Terminada",
         "fechaLimite": "2025-04-22"
       },
@@ -48,7 +47,7 @@
         "tareas": [
           {
             "id": "1745095929214",
-            "titulo": "tarea 12314",
+            "titulo": "tarea 123",
             "descripcion": "daaaaaaaa",
             "estado": "Pendiente",
             "fechaLimite": "2025-04-10"
@@ -66,7 +65,13 @@
             "descripcion": "2384uwq",
             "estado": "Terminada",
             "fechaLimite": "2025-04-01"
-
+          },
+          {
+            "id": "1745363581133",
+            "titulo": "NuevaTarea",
+            "descripcion": "una tarea nueva",
+            "estado": "Pendiente",
+            "fechaLimite": "2025-05-20"
           }
         ]
       }
