@@ -4,7 +4,7 @@
       {
         "id": "1743623662212",
         "titulo": "NuevaTareaCreada123",
-        "descripcion": "descripcion asd",
+        "descripcion": "descripcion 123",
         "estado": "Terminada",
         "fechaLimite": "2025-04-22"
       },
@@ -30,11 +30,18 @@
         "fechaLimite": "2025-05-15"
       },
       {
-        "id": "1743643154046",
-        "titulo": "otra tarea",
-        "descripcion": "esto hace algo",
+        "id": "1745352418981",
+        "titulo": "Tarea backlog nueva",
+        "descripcion": "Una nueva tarea",
         "estado": "Pendiente",
-        "fechaLimite": "2025-04-29"
+        "fechaLimite": "2025-05-25"
+      },
+      {
+        "id": "1745352448311",
+        "titulo": "otra nueva tarea",
+        "descripcion": "nueva tarea",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-05-21"
       }
     ]
   },
@@ -50,14 +57,14 @@
             "id": "1745095929214",
             "titulo": "tarea 12314",
             "descripcion": "daaaaaaaa",
-            "estado": "En Progreso",
+            "estado": "Pendiente",
             "fechaLimite": "2025-04-10"
           },
           {
             "id": "1745096837762",
             "titulo": "holaaa",
-            "descripcion": "kdgaldg",
-            "estado": "Pendiente",
+            "descripcion": "kdgaldg ",
+            "estado": "En progreso",
             "fechaLimite": "2025-04-22"
           },
           {

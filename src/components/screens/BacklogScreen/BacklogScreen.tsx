@@ -7,7 +7,7 @@ import Modal from "../../ui/Modal/Modal";
 
 export default function BacklogScreen() {
   const [openModal, setOpenModal] = useState(false)
-  const setTareaActiva=tareaStore((state) => state.setTareaActiva)
+  const setTareaActiva = tareaStore((state) => state.setTareaActiva)
 
   const handleOpenModal = () => {
     setTareaActiva(null)
@@ -31,10 +31,10 @@ export default function BacklogScreen() {
       </div>
       <div className={styles.listasTareasContainer}>
         <div className={styles.mainDiv}>
-          <TareasList />
+          <TareasList variant="default"/>
         </div>
       </div>
-      {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={null} openModalSee={false} />}
+      {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={null} openModalSee={false} variant="default" />}
     </div>
   )
 }

@@ -10,16 +10,16 @@ import { sprintStore } from '../../store/sprintStore'
 
 interface ITareaEntryProps {
   tarea: ITarea;
-  variant?: 'default' | 'board';
+  variant: 'default' | 'board';
 }
 
 export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const [openModal, setOpenModal] = useState(false);
   const [openModalSee, setOpenModalSee] = useState(false);
-  const setTareaActiva = tareaStore((state) => state.setTareaActiva)
+  const setTareaActiva = tareaStore((state) => state.setTareaActiva);
   const activeSprint = sprintStore((state) => state.sprintActiva);
-  const { getTareas } = useTareas();
-  const { editTarea, deleteTarea } = useSprints()
+  const { getTareas, updateTarea, deleteTarea } = useTareas();
+  const { editTareaSprint, deleteTareaSprint } = useSprints()
   const fechaLimite = new Date(tarea.fechaLimite || "");
   const tiempoRestante = fechaLimite.getTime() - Date.now();
   const tresDiasEnMs = 3 * 24 * 60 * 60 * 1000;
@@ -42,20 +42,25 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     setOpenModal(false)
   }
   const handleDelete = () => {
-    if (activeSprint) {
-      deleteTarea(activeSprint.id!, tarea.id!);
+
+    if (variant === 'board' && activeSprint) {
+      deleteTareaSprint(activeSprint.id!, tarea.id!);
+    } else if (variant === 'default') {
+      deleteTarea(tarea.id!);
     }
   };
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     const updatedTarea = { ...tarea, [name]: value };
-    if (activeSprint) {
-      editTarea(activeSprint, updatedTarea);
-      getTareas()
+    if (variant === 'board' && activeSprint) {
+      editTareaSprint(activeSprint, updatedTarea);
+    } else if (variant === 'default') {
+      updateTarea(updatedTarea);
     }
+    getTareas();
   };
-  
+
   return (
     <div
       className={`${variant === 'board' ? styles.boardStyle : styles.backlogStyle} 
@@ -121,7 +126,11 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
           </button>
         </div>
       </div>
-      {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={tarea} openModalSee={openModalSee} />}
+      {openModal && <Modal
+        handleCloseModal={handleCloseModal}
+        activeTarea={tarea}
+        openModalSee={openModalSee}
+        variant={variant} />}
     </div>
   )
 }

@@ -40,7 +40,7 @@ export const MainScreen = () => {
                     }
                 </div>
             </div>
-            {openModal && <Modal activeTarea={null} openModalSee={false} handleCloseModal={handleCloseModal}/>}
+            {openModal && <Modal activeTarea={null} openModalSee={false} handleCloseModal={handleCloseModal} variant="board"/>}
         </>
     )
 
