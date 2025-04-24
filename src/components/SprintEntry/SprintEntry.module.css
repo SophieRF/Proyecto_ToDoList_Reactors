@@ -2,12 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 0.7rem;
     border: 2px black solid;
+    gap: 1rem;
     padding: 0.80rem;
+    padding-right: 0.6rem;
     border-radius: 5px;
     background-color:rgba(26, 145, 127, 0.829);
-
 }
 
 .mainDiv:hover {
@@ -17,7 +17,8 @@
 .flexDiv{
     display: flex;
     flex-direction: row;
-    gap: 12%;
+    gap: 10%;
+    font-size: 13px;
 }
 
 .divBotones {

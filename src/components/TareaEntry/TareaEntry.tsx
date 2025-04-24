@@ -14,6 +14,7 @@ interface ITareaEntryProps {
 }
 
 export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
+
   const [openModal, setOpenModal] = useState(false);
   const [openModalSee, setOpenModalSee] = useState(false);
   const setTareaActiva = tareaStore((state) => state.setTareaActiva);
@@ -97,6 +98,22 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
         )}
       </div>
 
+      {variant === "default" && (
+        <div className={styles.dropdownMoverASprint}>
+          <label htmlFor={`estado-${tarea.id}`}>Mover a Sprint:</label>
+          <Form.Select
+            id={`estado-${tarea.id}`}
+            name="estado"
+            value={tarea.estado}
+            onChange={handleChange}
+          >
+
+            <option value="Pendiente">Pendiente</option>
+            <option value="En progreso">En progreso</option>
+            <option value="Terminada">Terminada</option>
+          </Form.Select>
+        </div>
+      )}
       <div className={styles.divBotones}>
         <div>
           <button

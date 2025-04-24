@@ -96,6 +96,16 @@
     margin-right: 0.3rem;
 }
 
+.dropdownMoverASprint select{
+    width: 7vw;
+    padding: 6px 4px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 .divBotones {
     display: flex;

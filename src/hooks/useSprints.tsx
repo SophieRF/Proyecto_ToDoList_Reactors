@@ -4,6 +4,7 @@ import { createSprintController, deleteSprintController, getSprintsController, u
 import { ISprint } from "../types/ISprint"
 import { useCallback } from "react"
 import { ITarea } from "../types/ITarea"
+import { deleteTareaController } from "../data/tareasController"
 
 export const useSprints = () => {
     const {sprints, listarSprints, crearSprint, editarSprint, agregarTareaASprint, editarTareaDeSprint, eliminarTareaDeSprint, eliminarSprint}=sprintStore(
@@ -99,7 +100,7 @@ export const useSprints = () => {
         eliminarTareaDeSprint(idSprint, tareaId)
 
         try{
-            await deleteSprintController(idSprint)
+            await deleteTareaController(tareaId)
         }catch(error){
             console.log("Error al borrar la tarea ", error)
         }

@@ -4,8 +4,9 @@
       {
         "id": "1743623662212",
         "titulo": "NuevaTareaCreada",
-        "estado": "Terminada",
-        "fechaLimite": "2025-04-22"
+        "estado": "Pendiente",
+        "fechaLimite": "2025-04-22",
+        "descripcion": "asda"
       },
       {
         "id": "1743637839584",
@@ -56,7 +57,7 @@
             "id": "1745096837762",
             "titulo": "holaaa",
             "descripcion": "kdgaldg ",
-            "estado": "En progreso",
+            "estado": "Pendiente",
             "fechaLimite": "2025-04-22"
           },
           {
@@ -70,7 +71,7 @@
             "id": "1745363581133",
             "titulo": "NuevaTarea",
             "descripcion": "una tarea nueva",
-            "estado": "Pendiente",
+            "estado": "En progreso",
             "fechaLimite": "2025-05-20"
           }
         ]

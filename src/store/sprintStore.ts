@@ -9,9 +9,9 @@ interface ISprintStore {
     crearSprint: (nombre: string, fechaInicio: string, fechaCierre: string) => ISprint;
     listarSprints: (sprints: ISprint[]) => void;
     editarSprint: (sprintEditada: ISprint) => void;
-    agregarTareaASprint:(sprintId:string, tarea:ITarea) =>void;
-    editarTareaDeSprint:(sprintId:string, tarea:ITarea) => void;
-    eliminarTareaDeSprint:(sprintId:string, tareaId:string) => void;
+    agregarTareaASprint: (sprintId: string, tarea: ITarea) => void;
+    editarTareaDeSprint: (sprintId: string, tarea: ITarea) => void;
+    eliminarTareaDeSprint: (sprintId: string, tareaId: string) => void;
     eliminarSprint: (sprintId: string) => void;
 }
 
@@ -20,11 +20,11 @@ export const sprintStore = create<ISprintStore>((set) => ({
     sprintActiva: null,
 
     //Setear Sprint Activa
-    setSprintActiva: (sprintActivaInput) => set({ sprintActiva:sprintActivaInput }),
+    setSprintActiva: (sprintActivaInput) => set({ sprintActiva: sprintActivaInput }),
 
     //Crear un Sprint
     crearSprint: (nombre, fechaInicio, fechaCierre) => {
-        const nuevoSprint:ISprint = {
+        const nuevoSprint: ISprint = {
             id: Date.now().toString(),
             nombre,
             fechaInicio,
@@ -32,7 +32,7 @@ export const sprintStore = create<ISprintStore>((set) => ({
             tareas: []
         };
         set((state) => ({
-            sprints:[...state.sprints, nuevoSprint]
+            sprints: [...state.sprints, nuevoSprint]
         }))
         return nuevoSprint;
     },
@@ -52,42 +52,42 @@ export const sprintStore = create<ISprintStore>((set) => ({
     }),
 
     // Agregar una tarea a un sprint por id
-    agregarTareaASprint:(sprintId, nuevaTarea) => set((state) => {
-        const sprints=state.sprints.map((sprint) => sprint.id===sprintId ? {...sprint, tareas:[...sprint.tareas, nuevaTarea]}: sprint)
-        return {sprints}
+    agregarTareaASprint: (sprintId, nuevaTarea) => set((state) => {
+        const sprints = state.sprints.map((sprint) => sprint.id === sprintId ? { ...sprint, tareas: [...sprint.tareas, nuevaTarea] } : sprint)
+        return { sprints }
     }
-),
+    ),
     // Editar una tarea de un sprint
-editarTareaDeSprint: (sprintId, tareaEditada) => set((state) => {
-    const sprints = state.sprints.map((sprint) => {
-        if (sprint.id === sprintId) {
-            const tareasActualizadas = sprint.tareas.map((tarea) =>
-                tarea.id === tareaEditada.id ? { ...tarea, ...tareaEditada } : tarea
-            );
-            return { ...sprint, tareas: tareasActualizadas };
-        }
-        return sprint;
-    });
-    return { sprints };
-}),
+    editarTareaDeSprint: (sprintId, tareaEditada) => set((state) => {
+        const sprints = state.sprints.map((sprint) => {
+            if (sprint.id === sprintId) {
+                const tareasActualizadas = sprint.tareas.map((tarea) =>
+                    tarea.id === tareaEditada.id ? { ...tarea, ...tareaEditada } : tarea
+                );
+                return { ...sprint, tareas: tareasActualizadas };
+            }
+            return sprint;
+        });
+        return { sprints };
+    }),
 
     //Borrar tarea desde sprint
     eliminarTareaDeSprint: (sprintId, tareaId) => set((state) => {
         const sprints = state.sprints.map((sprint) => {
-          if (sprint.id === sprintId) {
-            const tareasActualizadas = sprint.tareas.filter((tarea) => tarea.id !== tareaId);
-            return { ...sprint, tareas: tareasActualizadas };
-          }
-          return sprint;
+            if (sprint.id === sprintId) {
+                const tareasActualizadas = sprint.tareas.filter((tarea) => tarea.id !== tareaId);
+                return { ...sprint, tareas: tareasActualizadas };
+            }
+            return sprint;
         });
-      
+
         const sprintActiva = state.sprintActiva?.id === sprintId
-          ? { ...state.sprintActiva, tareas: state.sprintActiva.tareas.filter(t => t.id !== tareaId) }
-          : state.sprintActiva;
-      
+            ? { ...state.sprintActiva, tareas: state.sprintActiva.tareas.filter(t => t.id !== tareaId) }
+            : state.sprintActiva;
+
         return { sprints, sprintActiva };
-      }),
-      
+    }),
+
     //Eliminar Sprint
     eliminarSprint: (sprintId) => set((state) => {
         const arregloSprints = state.sprints.filter((sprint) =>
