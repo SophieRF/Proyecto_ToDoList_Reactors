@@ -19,7 +19,7 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const [openModalSee, setOpenModalSee] = useState(false);
   const setTareaActiva = tareaStore((state) => state.setTareaActiva);
   const activeSprint = sprintStore((state) => state.sprintActiva);
-  const { getTareas, updateTarea, deleteTarea } = useTareas();
+  const { getTareas, createTarea, updateTarea, deleteTarea } = useTareas();
   const { updateSprint, editTareaSprint, deleteTareaSprint } = useSprints()
   const fechaLimite = new Date(tarea.fechaLimite || "");
   const tiempoRestante = fechaLimite.getTime() - Date.now();
@@ -67,6 +67,21 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     getTareas();
   };
 
+  const handleEnviarAlBacklog = async () => {
+    if (!activeSprint || !tarea.id) return;
+  
+    try {
+      await deleteTareaSprint(activeSprint.id!, tarea.id);
+  
+      await createTarea(tarea.titulo, tarea.descripcion, tarea.fechaLimite!);
+  
+      await getTareas();
+  
+    } catch (error) {
+      console.error("Error al enviar la tarea al backlog:", error);
+    }
+  };
+
   const handleMoverAlSprint = async (
     e: ChangeEvent<HTMLSelectElement>,
     tarea: ITarea,
@@ -110,7 +125,9 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
 
         {variant === 'board' && (
           <div className={styles.estadoWrapper}>
-            <button className={styles.botonEnviar}>
+            <button 
+            className={styles.botonEnviar}
+            onClick={handleEnviarAlBacklog}>
               Enviar al Backlog
             </button>
 

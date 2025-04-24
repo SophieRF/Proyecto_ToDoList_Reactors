@@ -21,6 +21,20 @@
         "descripcion": "descrip 3",
         "estado": "Pendiente",
         "fechaLimite": "2025-05-15"
+      },
+      {
+        "id": "1745522381440",
+        "titulo": "tarea nueva 2",
+        "descripcion": "una tarea",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-05-08"
+      },
+      {
+        "id": "1745522409385",
+        "titulo": "Tarea nueva 1",
+        "descripcion": "tarea 1",
+        "estado": "Pendiente",
+        "fechaLimite": "2025-05-05"
       }
     ]
   },
@@ -59,13 +73,6 @@
             "descripcion": "una tarea nueva",
             "estado": "En progreso",
             "fechaLimite": "2025-05-20"
-          },
-          {
-            "id": "1745503086784",
-            "titulo": "tarea nueva 2",
-            "descripcion": "una tarea",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-08"
           }
         ]
       },
@@ -107,13 +114,6 @@
             "id": "1745501733659",
             "titulo": "Tarea 4",
             "descripcion": "una tarea",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-05"
-          },
-          {
-            "id": "1745503068742",
-            "titulo": "Tarea nueva 1",
-            "descripcion": "tarea 1",
             "estado": "Pendiente",
             "fechaLimite": "2025-05-05"
           }
