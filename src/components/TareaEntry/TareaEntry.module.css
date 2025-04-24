@@ -106,7 +106,7 @@
     transition: 0.2s;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     background-color: #FFAD69;
-    margin-right: 1rem;
+    margin-right: 0.8rem;
 }
 
 .dropdownMoverASprint select:hover {
