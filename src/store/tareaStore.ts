@@ -1,7 +1,5 @@
 import { create } from "zustand";
 import { ITarea } from "../types/ITarea.ts";
-import { sprintStore } from "./sprintStore.ts";
-
 interface ITareaStore {
     tareas: ITarea[]
     tareaActiva: ITarea | null
@@ -11,7 +9,6 @@ interface ITareaStore {
     editarTarea: (tareaActualizada: ITarea) => void;
     eliminarUnaTarea: (idTarea: string) => void;
     cambiarEstadoDeTarea: (idTarea: string, nuevoEstado: string) => void;
-    moverTarea: (idTarea: string, idSprint: string) => void;
 }
 
 export const tareaStore = create<ITareaStore>((set) => ({
@@ -73,30 +70,7 @@ export const tareaStore = create<ITareaStore>((set) => ({
             tareas: updateEstado(state.tareas)
         };
     }),
-
-    // Mover tarea entre sprint y backlog
-    moverTarea: (idTarea, idSprint) => {
-        set((state) => {
-            const tareaMovida = state.tareas.find((tarea) => tarea.id === idTarea);
-            if (!tareaMovida) return state;
-
-            const sprints = sprintStore.getState().sprints;
-
-            const nuevoBacklog = state.tareas.filter((tarea) => tarea.id !== idTarea);
-
-            const nuevosSprints = sprints.map((sprint) => {
-                if (sprint.id === idSprint) {
-                    return { ...sprint, tareas: [...sprint.tareas, tareaMovida] };
-                }
-                return sprint;
-            });
-
-            return {
-                tareas: nuevoBacklog,
-                sprints: nuevosSprints,
-            };
-        });
-    },
+    
 }));
 
 

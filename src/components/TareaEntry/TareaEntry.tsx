@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { ITarea } from '../../types/ITarea'
 import styles from './TareaEntry.module.css'
 import { tareaStore } from '../../store/tareaStore'
@@ -20,11 +20,16 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   const setTareaActiva = tareaStore((state) => state.setTareaActiva);
   const activeSprint = sprintStore((state) => state.sprintActiva);
   const { getTareas, updateTarea, deleteTarea } = useTareas();
-  const { editTareaSprint, deleteTareaSprint } = useSprints()
+  const { updateSprint, editTareaSprint, deleteTareaSprint } = useSprints()
   const fechaLimite = new Date(tarea.fechaLimite || "");
   const tiempoRestante = fechaLimite.getTime() - Date.now();
   const tresDiasEnMs = 3 * 24 * 60 * 60 * 1000;
   const tareaAVencer = tiempoRestante <= tresDiasEnMs && tiempoRestante > 0;
+  const { getSprints, sprints } = useSprints();
+
+  useEffect(() => {
+    getSprints();
+  }, [getSprints])
 
   const handleOpenModalSee = () => {
     setTareaActiva(tarea)
@@ -62,6 +67,35 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     getTareas();
   };
 
+  const handleMoverAlSprint = async (
+    e: ChangeEvent<HTMLSelectElement>,
+    tarea: ITarea,
+    sprints: ReturnType<typeof useSprints>["sprints"],
+    deleteTarea: ReturnType<typeof useTareas>["deleteTarea"],
+    updateSprint: ReturnType<typeof useSprints>["updateSprint"],
+    getSprints: ReturnType<typeof useSprints>["getSprints"]
+  ) => {
+    const idSprintDestino = e.target.value;
+    const sprintDestino = sprints.find((s) => s.id === idSprintDestino);
+    if (!sprintDestino) return;
+
+    try {
+      await deleteTarea(tarea.id!);
+
+      const sprintActualizado = {
+        ...sprintDestino,
+        tareas: [...sprintDestino.tareas, tarea],
+      };
+
+      await updateSprint(sprintActualizado);
+
+      await getSprints();
+
+    } catch (error) {
+      console.error("Error al mover la tarea al sprint:", error);
+    }
+  };
+
   return (
     <div
       className={`${variant === 'board' ? styles.boardStyle : styles.backlogStyle} 
@@ -97,24 +131,28 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
           </div>
         )}
       </div>
-
-      {variant === "default" && (
-        <div className={styles.dropdownMoverASprint}>
-          <label htmlFor={`estado-${tarea.id}`}>Mover a Sprint:</label>
-          <Form.Select
-            id={`estado-${tarea.id}`}
-            name="estado"
-            value={tarea.estado}
-            onChange={handleChange}
-          >
-
-            <option value="Pendiente">Pendiente</option>
-            <option value="En progreso">En progreso</option>
-            <option value="Terminada">Terminada</option>
-          </Form.Select>
-        </div>
-      )}
       <div className={styles.divBotones}>
+        {variant === "default" && (
+          <div className={styles.dropdownMoverASprint}>
+            <label htmlFor={`sprint-${tarea.id}`}>Mover a Sprint:</label>
+            <Form.Select
+              id={`sprint-${tarea.id}`}
+              name="sprintId"
+              onChange={(e) =>
+                handleMoverAlSprint(e, tarea, sprints, deleteTarea, updateSprint, getSprints)}
+            >
+              <option value="" disabled>Seleccionar sprint...</option>
+              {sprints.length > 0 && sprints.map((sprint) => (
+                <option
+                  key={sprint.id}
+                  value={sprint.id}>
+                  {sprint.nombre}
+                </option>
+              ))}
+            </Form.Select>
+          </div>
+        )}
+
         <div>
           <button
             className={styles.botonVisibility}

@@ -70,31 +70,31 @@ export const deleteTareaController = async (idTareaAEliminar: string) => {
     }
 };
 
-    //Cambiar estado de la Tarea
-    export const updateEstadoTareaController = async (
-        id: string,
-        nuevoEstado: string
-    ): Promise<ITarea | undefined> => {
-        try {
-            const tareasBd = await getTareasController();
+//Cambiar estado de la Tarea
+export const updateEstadoTareaController = async (
+    id: string,
+    nuevoEstado: string
+): Promise<ITarea | undefined> => {
+    try {
+        const tareasBd = await getTareasController();
 
-            if (tareasBd) {
-                const tareaActual = tareasBd.find((t) => t.id === id);
+        if (tareasBd) {
+            const tareaActual = tareasBd.find((t) => t.id === id);
 
-                if (!tareaActual) {
-                    console.error("Tarea no encontrada");
-                    return;
-                }
-
-                const tareaActualizada: ITarea = {
-                    ...tareaActual,
-                    estado: nuevoEstado,
-                };
-
-                await updateTareaController(tareaActualizada);
-                return tareaActualizada;
+            if (!tareaActual) {
+                console.error("Tarea no encontrada");
+                return;
             }
-        } catch (error) {
-            console.log("Error en cambiarEstadoTareaController", error);
+
+            const tareaActualizada: ITarea = {
+                ...tareaActual,
+                estado: nuevoEstado,
+            };
+
+            await updateTareaController(tareaActualizada);
+            return tareaActualizada;
         }
-    };
+    } catch (error) {
+        console.log("Error en cambiarEstadoTareaController", error);
+    }
+};

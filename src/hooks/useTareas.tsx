@@ -6,7 +6,7 @@ import { createTareaController, deleteTareaController, getTareasController, upda
 export const useTareas = () => {
 
     const {
-        tareas, setArrayTareas, crearTarea, editarTarea, eliminarUnaTarea, 
+        tareas, setArrayTareas, crearTarea, editarTarea, eliminarUnaTarea,
     } = tareaStore(
         useShallow((state) => ({
             tareas: state.tareas,
@@ -20,7 +20,7 @@ export const useTareas = () => {
     const getTareas = async () => {
         const data = await getTareasController();
         if (data) {
-            setArrayTareas(data);  
+            setArrayTareas(data);
         }
     };
 
@@ -63,6 +63,7 @@ export const useTareas = () => {
         createTarea,
         updateTarea,
         deleteTarea,
+        
     }
 };
 

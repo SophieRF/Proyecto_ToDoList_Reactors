@@ -96,16 +96,27 @@ export const useSprints = () => {
       };
       
       //DELETE TAREA SPRINT
-      const deleteTareaSprint= async (idSprint:string, tareaId:string) => {
-        eliminarTareaDeSprint(idSprint, tareaId)
+      const deleteTareaSprint = async (idSprint: string, tareaId: string) => {
 
-        try{
-            await deleteTareaController(tareaId)
-        }catch(error){
-            console.log("Error al borrar la tarea ", error)
+        eliminarTareaDeSprint(idSprint, tareaId);
+    
+        const sprintActual = sprints.find((s) => s.id === idSprint);
+        if (!sprintActual) return;
+    
+        const sprintActualizado: ISprint = {
+            ...sprintActual,
+            tareas: sprintActual.tareas.filter((tarea) => tarea.id !== tareaId),
+        };
+    
+        try {
+            await updateSprintController(sprintActualizado);
+    
+            await deleteTareaController(tareaId);
+        } catch (error) {
+            console.log("Error al borrar la tarea o actualizar el sprint", error);
+            getSprints(); 
         }
-
-      }
+    };
 
     //DELETE SPRINT
     const deleteSprint = async (idSprint: string) => {
