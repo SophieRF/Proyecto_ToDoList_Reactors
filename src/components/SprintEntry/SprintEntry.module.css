@@ -8,6 +8,7 @@
     padding-right: 0.6rem;
     border-radius: 5px;
     background-color:rgba(26, 145, 127, 0.829);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .mainDiv:hover {
@@ -36,7 +37,8 @@
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s, transform 0.2s;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
 }
 
 .botonVisibility {

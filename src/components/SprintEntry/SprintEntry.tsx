@@ -4,6 +4,7 @@ import { sprintStore } from "../../store/sprintStore"
 import { useSprints } from "../../hooks/useSprints"
 import styles from './SprintEntry.module.css'
 import { ModalSprints } from "../ui/ModalSprints/ModalSprints"
+import { useNavigate } from "react-router-dom"
 
 interface ISprintProps {
   sprint: ISprint
@@ -12,6 +13,7 @@ interface ISprintProps {
 export const SprintEntry = ({ sprint }: ISprintProps) => {
   const [openModal, setOpenModal] = useState(false);
   const [openModalSee, setOpenModalSee] = useState(false);
+  const navigate = useNavigate()
   const setSprintActivo = sprintStore((state) => state.setSprintActiva)
   const { deleteSprint } = useSprints()
 
@@ -36,9 +38,13 @@ export const SprintEntry = ({ sprint }: ISprintProps) => {
     deleteSprint(sprint.id!);
   };
 
+    const handleSprintClick = () => {
+    setSprintActivo(sprint)
+    navigate("/") 
+  }
 
   return (
-    <div className={styles.mainDiv} onClick={() => setSprintActivo(sprint)}>
+    <div className={styles.mainDiv} onClick={handleSprintClick}>
       <h1>{sprint.nombre}</h1>
       <div className={styles.flexDiv}>
         <div>

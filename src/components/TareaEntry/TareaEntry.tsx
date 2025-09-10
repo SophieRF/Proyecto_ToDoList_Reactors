@@ -92,14 +92,14 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   ) => {
     const idSprintDestino = e.target.value;
     const sprintDestino = sprints.find((s) => s.id === idSprintDestino);
-    if (!sprintDestino) return;
+    if (!sprintDestino|| idSprintDestino === "") return;
 
     try {
       await deleteTarea(tarea.id!);
 
       const sprintActualizado = {
         ...sprintDestino,
-        tareas: [...sprintDestino.tareas, tarea],
+        tareas: [...(sprintDestino.tareas || []), tarea],
       };
 
       await updateSprint(sprintActualizado);
@@ -155,6 +155,7 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
             <Form.Select
               id={`sprint-${tarea.id}`}
               name="sprintId"
+              defaultValue=""
               onChange={(e) =>
                 handleMoverAlSprint(e, tarea, sprints, deleteTarea, updateSprint, getSprints)}
             >

@@ -63,6 +63,16 @@
     gap:6.1rem
 }
 
+.acceptButton, .cancelButton {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
 .acceptButton{
     background-color: green;
 }

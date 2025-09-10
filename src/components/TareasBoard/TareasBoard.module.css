@@ -21,20 +21,20 @@
     margin-bottom: 2rem;
 }
 .pendienteTitle{
-    color: rgb(172, 21, 21);
+    color: rgb(255, 255, 255);
 }
 .enProgresoTitle{
-    color: rgb(23, 102, 23);
+    color: rgb(255, 255, 255);
 }
 
 .terminadasTitle{
-    color: rgb(37, 32, 104);
+    color: rgb(255, 255, 255);
 }
 
 .tareasContainer {
     width: 24rem;
     height: auto;
-    background: rgba(108, 211, 176, 0.527);
+    background: #2d2d2d81;
     border-radius: 2%;
     display: flex;
     flex-direction: column;
