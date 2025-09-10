@@ -4,50 +4,50 @@ import { ISprint } from '../../../types/ISprint'
 import styles from './ModalSprints.module.css'
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
-interface IModalSprintProps{
-    activeSprint:ISprint | null,
-    openModalSee:boolean,
-    handleCloseModal:() => void
+interface IModalSprintProps {
+  activeSprint: ISprint | null,
+  openModalSee: boolean,
+  handleCloseModal: () => void
 }
 
-const initialState={
-    nombre:"",
-    fechaInicio:"",
-    fechaCierre:"",
-    tareas:[]
+const initialState = {
+  nombre: "",
+  fechaInicio: "",
+  fechaCierre: "",
+  tareas: []
 }
 
-export const ModalSprints = ({handleCloseModal, activeSprint, openModalSee}:IModalSprintProps) => {
-    const {createSprint, updateSprint}=useSprints();
-    const [formValues, setFormValues]=useState<ISprint>(initialState);
+export const ModalSprints = ({ handleCloseModal, activeSprint, openModalSee }: IModalSprintProps) => {
+  const { createSprint, updateSprint } = useSprints();
+  const [formValues, setFormValues] = useState<ISprint>(initialState);
 
-    const setSprintActive=sprintStore((state) => state.setSprintActiva);
+  const setSprintActive = sprintStore((state) => state.setSprintActiva);
 
-    const handleSubmit=async (e:FormEvent) => {
-        e.preventDefault();
-        if(activeSprint){
-            updateSprint(formValues)
-        }else{
-            createSprint(formValues.nombre, formValues.fechaInicio, formValues.fechaCierre)
-        }
-
-        setSprintActive(null)
-        handleCloseModal()
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (activeSprint) {
+      updateSprint(formValues)
+    } else {
+      createSprint(formValues.nombre, formValues.fechaInicio, formValues.fechaCierre)
     }
 
-    const handleChange=(e:ChangeEvent<HTMLInputElement>)=>{
-      const {name, value} =e.target
-      setFormValues((prev) => ({... prev, [`${name}`]: value}))
-    }
+    setSprintActive(null)
+    handleCloseModal()
+  }
 
-    useEffect(() => {
-        if(activeSprint){
-            setFormValues((prev) => 
-            prev.id ? prev : activeSprint)
-        }else{
-            setFormValues(initialState)
-        }
-    }, [activeSprint])
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormValues((prev) => ({ ...prev, [`${name}`]: value }))
+  }
+
+  useEffect(() => {
+    if (activeSprint) {
+      setFormValues((prev) =>
+        prev.id ? prev : activeSprint)
+    } else {
+      setFormValues(initialState)
+    }
+  }, [activeSprint])
   return (
     <div className={styles.mainDiv}>
       <div className={styles.innerDiv}>
@@ -67,8 +67,8 @@ export const ModalSprints = ({handleCloseModal, activeSprint, openModalSee}:IMod
                   value={formValues?.nombre}
                 />
               </div>
-              <div>
-              <label>Fecha de inicio:</label>
+              <div className={styles.fechaInput}>
+                <label>Fecha de inicio:</label>
                 <input
                   type='date'
                   name='fechaInicio'
@@ -92,20 +92,39 @@ export const ModalSprints = ({handleCloseModal, activeSprint, openModalSee}:IMod
             </form>
           </>}
         {openModalSee && activeSprint &&
-          <>
+          <form className={styles.formulario}>
             <div>
-              <p>Nombre del sprint: {activeSprint?.nombre}</p>
+              <label>Nombre del sprint:</label>
+              <input
+                type="text"
+                className={styles.inputBox}
+                value={activeSprint.nombre}
+                disabled
+              />
             </div>
-            <div>
-              <p>Fecha de inicio: {activeSprint?.fechaInicio}</p>
+            <div className={styles.fechaInput}>
+              <label>Fecha de inicio:</label>
+              <input
+                type="date"
+                className={styles.inputBox}
+                value={activeSprint.fechaInicio}
+                disabled
+              />
             </div>
-            <div>
-              <p>Fecha de cierre: {activeSprint?.fechaCierre}</p>
+            <div className={styles.fechaInput}>
+              <label>Fecha de cierre:</label>
+              <input
+                type="date"
+                className={styles.inputBox}
+                value={activeSprint.fechaCierre}
+                disabled
+              />
             </div>
             <div className={styles.buttonsDiv}>
-              <button className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
+              <button className={styles.cancelButton} onClick={handleCloseModal}>Cerrar</button>
             </div>
-          </>}
+          </form>
+        }
         {!openModalSee && activeSprint == null &&
           <>
             <form onSubmit={handleSubmit} className={styles.formulario}>

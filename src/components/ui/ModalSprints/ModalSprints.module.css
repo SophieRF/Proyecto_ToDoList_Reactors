@@ -1,82 +1,178 @@
-.mainDiv{
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
-    position:fixed;
-    backdrop-filter:blur(5px);
-    inset: 0;
-    z-index:1000;
-    color:black
+.mainDiv {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  inset: 0;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
 }
 
-.innerDiv{
-    width: 380px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    justify-self: center;
-    justify-content: center;
-    background-color: antiquewhite;
-    border-radius:6%;
+.innerDiv {
+  width: 420px;
+  min-height: 400px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1rem 3rem 1.2rem 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+              0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+  overflow-y: auto;
 }
 
-.titulo{
-    align-self: center;
-    margin-top:0.5rem
+.titulo {
+  align-self: center;
+  margin-bottom: 1.5rem;
 }
 
-.formulario{
-    display: flex;
-    flex-direction: column;
-    gap:0.8rem;
-    padding: 1.2rem;
-    margin-top: 0.9rem;
+.titulo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  text-align: center;
 }
 
-
-.inputBox{
-    width:200px
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
 }
 
-.inputTextarea{
-    width:280px;
-    height: 120px;
+.formulario > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.fechaInput{
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
-    gap:1.7rem
+label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
 }
 
-.buttonsDiv{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top:55px;
-    align-content:space-between;
-    align-self: center;
-    gap:6.1rem
+.inputBox {
+  width: auto;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: #374151;
+}
+
+.inputBox:focus {
+  outline: none;
+  border-color: #FFAD69;
+  box-shadow: 0 0 0 3px rgba(255, 173, 105, 0.1);
+  background-color: #fffbf7;
+}
+
+.inputBox::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.inputTextarea {
+  width: auto;
+  height: 80px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: #374151;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.inputTextarea:focus {
+  outline: none;
+  border-color: #FFAD69;
+  box-shadow: 0 0 0 3px rgba(255, 173, 105, 0.1);
+  background-color: #fffbf7;
+}
+
+.fechaInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.fechaInput input[type="date"] {
+  width: auto;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: #374151;
+  cursor: pointer;
+}
+
+.fechaInput input[type="date"]:focus {
+  outline: none;
+  border-color: #FFAD69;
+  box-shadow: 0 0 0 3px rgba(255, 173, 105, 0.1);
+  background-color: #fffbf7;
+}
+
+.buttonsDiv {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f3f4f6;
+  width: 100%;
 }
 
 .acceptButton, .cancelButton {
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s ease;
+  flex: 1;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.acceptButton{
-    background-color: green;
+.acceptButton {
+  background: #059669;
+  color: white;
 }
 
-.cancelButton{
-    background-color: red;
+.acceptButton:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cancelButton {
+  background: #ef4444;
+  color: white;
+}
+
+.cancelButton:hover {
+  background: #ef4444;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }

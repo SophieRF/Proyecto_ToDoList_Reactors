@@ -12,21 +12,21 @@ export default function TareasBoard() {
     <div className={styles.mainDiv}>
       {activeSprint ? <>
         <div className={styles.tareasContainer}>
-        <h1 className={styles.pendienteTitle}>Pendiente</h1>
+        <h1 className={styles.estado}>Pendiente</h1>
         {tareasPendientes.length >0 ? tareasPendientes.map(tarea => (
           <TareaEntry key={tarea.id} tarea={tarea} variant="board" />
         )): <p>No hay tareas pendientes</p>}
       </div>
 
       <div className={styles.tareasContainer}>
-        <h1 className={styles.enProgresoTitle}>En progreso</h1>
+        <h1 className={styles.estado}>En progreso</h1>
         {tareasEnProgreso.length > 0 ? tareasEnProgreso.map(tarea => (
           <TareaEntry key={tarea.id} tarea={tarea} variant="board" />
         )): <p>No hay tareas en progreso</p>}
       </div>
 
       <div className={styles.tareasContainer}>
-        <h1 className={styles.terminadasTitle}>Terminadas</h1>
+        <h1 className={styles.estado}>Terminadas</h1>
         {tareasTerminadas.length > 0 ? tareasTerminadas.map(tarea => (
           <TareaEntry key={tarea.id} tarea={tarea} variant="board" />
         )): <p>No hay tareas terminadas</p>}

@@ -4,8 +4,8 @@
       {
         "id": "1757504070388",
         "titulo": "holaaa",
-        "descripcion": "asd",
-        "estado": "Pendiente",
+        "descripcion": "asdasddd",
+        "estado": "Terminada",
         "fechaLimite": "2025-07-22"
       },
       {
@@ -36,8 +36,8 @@
       {
         "id": "1745095036108",
         "nombre": "Sprint 1",
-        "fechaInicio": "2025-11-15",
-        "fechaCierre": "2025-05-11",
+        "fechaInicio": "2025-07-15",
+        "fechaCierre": "2025-10-11",
         "tareas": [
           {
             "id": "1745095929214",
@@ -75,7 +75,7 @@
             "fechaLimite": "2025-04-22"
           }
         ],
-        "fechaLimite": "2025-06-10"
+        "fechaLimite": "2025-11-11"
       },
       {
         "id": "1745092346108",

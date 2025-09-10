@@ -15,22 +15,6 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-.pendienteTitle,
-.enProgresoTitle,
-.terminadasTitle {
-    margin-bottom: 2rem;
-}
-.pendienteTitle{
-    color: rgb(255, 255, 255);
-}
-.enProgresoTitle{
-    color: rgb(255, 255, 255);
-}
-
-.terminadasTitle{
-    color: rgb(255, 255, 255);
-}
-
 .tareasContainer {
     width: 24rem;
     height: auto;
@@ -43,4 +27,8 @@
     color: black;
     font-family: sans-serif;
     padding: 2rem 0;
+}
+.estado{
+    margin-bottom: 2rem;
+    color: rgb(255, 255, 255);
 }
