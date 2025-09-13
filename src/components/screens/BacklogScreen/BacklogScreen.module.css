@@ -5,6 +5,7 @@
     align-items: center;
 }
 .titleContainer{
+    color: rgb(37, 37, 37);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,6 +33,11 @@
     font-size: 16px;
     font-weight: bold;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.1s ;
+}
+
+.crearTareaContainer button:hover {
+    transform: scale(1.01);
 }
 
 .listasTareasContainer{
@@ -43,7 +49,7 @@
     background-color: #2d2d2d81;
     display: flex;
     flex-direction: column;
-    border-radius: 2%;
+    border-radius: 3%;
     align-items: center;
     justify-items: center;
     justify-content: center;

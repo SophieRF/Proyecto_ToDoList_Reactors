@@ -127,25 +127,27 @@ export default function Modal({ handleCloseModal, activeTarea, openModalSee, var
               </div>
             </form>
           </>}
-        {openModalSee && activeSprint &&
+        {openModalSee && activeTarea &&
           <form className={styles.formulario + ' ' + styles.viewMode}>
-            <div className={styles.viewItem}>
-              <label>Nombre del sprint:</label>
-              <span>{activeSprint.nombre}</span>
+            <div className={styles.infoContainer}>
+              <div className={styles.infoItem}>
+                <label>Título:</label>
+                <span>{activeTarea.titulo}</span>
+              </div>
+              <div className={styles.infoItem}>
+                <label>Fecha Límite:</label>
+                <span>{activeTarea.fechaLimite}</span>
+              </div>
+              <div className={styles.infoItem}>
+                <label>Estado:</label>
+                <span>{activeTarea.estado}</span>
+              </div>
             </div>
-            <div className={styles.viewItem}>
-              <label>Fecha de inicio:</label>
-              <span>{activeSprint.fechaInicio}</span>
-            </div>
-            <div className={styles.viewItem}>
-              <label>Fecha de cierre:</label>
-              <span>{activeSprint.fechaCierre}</span>
-            </div>
+
             <div className={styles.buttonsDiv}>
               <button className={styles.cancelButton + ' ' + styles.fullWidthButton} onClick={handleCloseModal}>Cerrar</button>
             </div>
           </form>
-
         }
         {!openModalSee && activeTarea == null &&
           <>

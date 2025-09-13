@@ -24,7 +24,7 @@
   border-radius: 16px;
   padding: 1rem 3rem 1.2rem 3rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
-              0 8px 16px rgba(0, 0, 0, 0.1);
+    0 8px 16px rgba(0, 0, 0, 0.1);
   animation: slideIn 0.3s ease-out;
   overflow-y: auto;
 }
@@ -49,7 +49,7 @@
   width: 100%;
 }
 
-.formulario > div {
+.formulario>div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -143,7 +143,8 @@ label {
   width: 100%;
 }
 
-.acceptButton, .cancelButton {
+.acceptButton,
+.cancelButton {
   flex: 1;
   border: none;
   padding: 0.75rem 1.5rem;

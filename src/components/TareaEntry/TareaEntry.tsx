@@ -69,14 +69,14 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
 
   const handleEnviarAlBacklog = async () => {
     if (!activeSprint || !tarea.id) return;
-  
+
     try {
       await deleteTareaSprint(activeSprint.id!, tarea.id);
-  
+
       await createTarea(tarea.titulo, tarea.descripcion, tarea.fechaLimite!);
-  
+
       await getTareas();
-  
+
     } catch (error) {
       console.error("Error al enviar la tarea al backlog:", error);
     }
@@ -92,7 +92,7 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
   ) => {
     const idSprintDestino = e.target.value;
     const sprintDestino = sprints.find((s) => s.id === idSprintDestino);
-    if (!sprintDestino|| idSprintDestino === "") return;
+    if (!sprintDestino || idSprintDestino === "") return;
 
     try {
       await deleteTarea(tarea.id!);
@@ -118,38 +118,72 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
     >
       <div>
         <div>
-          <h1 className={styles.title}>{tarea.titulo}</h1>
-          <p>{tarea.descripcion}</p>
-          <p>{tarea.fechaLimite}</p>
+          <h1 title={tarea.titulo} className={`${styles.title} ${styles.textContainer}`}>{tarea.titulo}</h1>
+          <p className={styles.textContainerDescripcion}>{tarea.descripcion}</p>
+          <p className={styles.fechaLimiteContainer}>{tarea.fechaLimite}</p>
         </div>
 
         {variant === 'board' && (
-          <div className={styles.estadoWrapper}>
-            <button 
-            className={styles.botonEnviar}
-            onClick={handleEnviarAlBacklog}>
-              Enviar al Backlog
-            </button>
+          <div>
+            <div className={styles.estadoWrapper}>
+              <button
+                className={styles.botonEnviar}
+                onClick={handleEnviarAlBacklog}>
+                Enviar al Backlog
+              </button>
 
-            <div className={styles.dropdownEstado}>
-              <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
-              <Form.Select
-                id={`estado-${tarea.id}`}
-                name="estado"
-                value={tarea.estado}
-                onChange={handleChange}
-              >
-                <option value="Pendiente">Pendiente</option>
-                <option value="En progreso">En progreso</option>
-                <option value="Terminada">Terminada</option>
-              </Form.Select>
+              <div className={styles.estadoYbuttonsContainer}>
+                <div className={styles.dropdownEstado}>
+                  <label htmlFor={`estado-${tarea.id}`}>Estado:</label>
+                  <Form.Select
+                    id={`estado-${tarea.id}`}
+                    name="estado"
+                    value={tarea.estado}
+                    onChange={handleChange}
+                  >
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="En progreso">En progreso</option>
+                    <option value="Terminada">Terminada</option>
+                  </Form.Select>
+                </div>
+
+                <div className={styles.divBotones}>
+                  <div>
+                    <button
+                      className={styles.botonVisibility}
+                      onClick={handleOpenModalSee}>
+                      <span className="material-symbols-outlined">
+                        visibility
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className={styles.botonEdit}
+                      onClick={handleOpenModalEntry}>
+                      <span className="material-symbols-outlined">
+                        edit
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className={styles.botonDelete}
+                      onClick={handleDelete}>
+                      <span className="material-symbols-outlined">
+                        delete
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-
           </div>
+
         )}
       </div>
-      <div className={styles.divBotones}>
-        {variant === "default" && (
+      {variant === "default" && (
+        <div className={styles.defaultContainer}>
           <div className={styles.dropdownMoverASprint}>
             <label htmlFor={`sprint-${tarea.id}`}>Mover a Sprint:</label>
             <Form.Select
@@ -169,36 +203,39 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
               ))}
             </Form.Select>
           </div>
-        )}
+          <div className={styles.divBotones}>
+            <div>
+              <button
+                className={styles.botonVisibility}
+                onClick={handleOpenModalSee}>
+                <span className="material-symbols-outlined">
+                  visibility
+                </span>
+              </button>
+            </div>
+            <div>
+              <button
+                className={styles.botonEdit}
+                onClick={handleOpenModalEntry}>
+                <span className="material-symbols-outlined">
+                  edit
+                </span>
+              </button>
+            </div>
+            <div>
+              <button
+                className={styles.botonDelete}
+                onClick={handleDelete}>
+                <span className="material-symbols-outlined">
+                  delete
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
 
-        <div>
-          <button
-            className={styles.botonVisibility}
-            onClick={handleOpenModalSee}>
-            <span className="material-symbols-outlined">
-              visibility
-            </span>
-          </button>
-        </div>
-        <div>
-          <button
-            className={styles.botonEdit}
-            onClick={handleOpenModalEntry}>
-            <span className="material-symbols-outlined">
-              edit
-            </span>
-          </button>
-        </div>
-        <div>
-          <button
-            className={styles.botonDelete}
-            onClick={handleDelete}>
-            <span className="material-symbols-outlined">
-              delete
-            </span>
-          </button>
-        </div>
-      </div>
+      )}
+
       {openModal && <Modal
         handleCloseModal={handleCloseModal}
         activeTarea={tarea}

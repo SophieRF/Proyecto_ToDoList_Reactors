@@ -25,13 +25,15 @@ export default function BacklogScreen() {
           <p>Backlog: </p>
           <div className={styles.crearTareaContainer}>
             <p>Tareas en el Backlog: </p>
-            <button onClick={handleOpenModal}>Crear Tarea</button>
+            <button onClick={handleOpenModal}>
+              Crear Tarea
+            </button>
           </div>
         </div>
       </div>
       <div className={styles.listasTareasContainer}>
         <div className={styles.mainDiv}>
-          <TareasList variant="default"/>
+          <TareasList variant="default" />
         </div>
       </div>
       {openModal && <Modal handleCloseModal={handleCloseModal} activeTarea={null} openModalSee={false} variant="default" />}

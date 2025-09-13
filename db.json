@@ -2,164 +2,170 @@
   "backlog": {
     "tareas": [
       {
-        "id": "1757504070388",
-        "titulo": "holaaa",
-        "descripcion": "asdasddd",
-        "estado": "Terminada",
-        "fechaLimite": "2025-07-22"
+        "id": "back-01",
+        "titulo": "Auditoría de contenidos",
+        "descripcion": "Revisar y catalogar todo el contenido que el cliente ya tiene (textos, imágenes, PDFs).",
+        "estado": "terminado",
+        "fechaLimite": "2025-09-09"
       },
       {
-        "id": "1757504071476",
-        "titulo": "Nueva Tarea",
-        "descripcion": "una nueva tarea",
+        "id": "back-02",
+        "titulo": "Crear arquitectura de información",
+        "descripcion": "Definir páginas principales, secciones y rutas.",
         "estado": "Pendiente",
-        "fechaLimite": "2025-05-05"
+        "fechaLimite": "2025-09-10"
       },
       {
-        "id": "1757504077290",
-        "titulo": "Tarea backlog ",
-        "descripcion": "descripciónn",
-        "estado": "Pendiente",
-        "fechaLimite": "2025-04-26"
+        "id": "back-03",
+        "titulo": "Recolectar assets del cliente",
+        "descripcion": "Pedir logos, fotos, iconografía y material de marca - organizar carpeta de assets.",
+        "estado": "en progreso",
+        "fechaLimite": "2025-09-12"
       },
       {
-        "id": "1757504314126",
-        "titulo": "holaaa",
-        "descripcion": "kdgaldg ",
-        "estado": "Pendiente",
-        "fechaLimite": "2025-04-22"
+        "id": "back-04",
+        "titulo": "Definir tipografías y estilos base",
+        "descripcion": "Elegir tipografías secundarias, tamaños y jerarquías tipográficas.",
+        "estado": "pendiente",
+        "fechaLimite": "2025-09-12"
+      },
+      {
+        "id": "back-05",
+        "titulo": "Specs SEO iniciales",
+        "descripcion": "Palabras clave, meta titles/descriptions base y checklist SEO técnico.",
+        "estado": "pendiente",
+        "fechaLimite": "2025-09-14"
+      },
+      {
+        "id": "back-06",
+        "titulo": "Redacción de textos legales",
+        "descripcion": "Preparar política de privacidad y aviso legal con el input del cliente.",
+        "estado": "pendiente",
+        "fechaLimite": "2025-09-16"
+      },
+      {
+        "id": "back-07",
+        "titulo": "Plan de pruebas (QA)",
+        "descripcion": "Definir casos de prueba, dispositivos a testear y criterios de aceptación.",
+        "estado": "pendiente",
+        "fechaLimite": "2025-09-15"
+      },
+      {
+        "id": "back-08",
+        "titulo": "Integraciones futuras (lista)",
+        "descripcion": "Lista priorizada de integraciones (analytics, formularios, pasarela de pago opcional).",
+        "estado": "pendiente",
+        "fechaLimite": "2025-09-22"
       }
     ]
   },
   "sprintList": {
     "sprints": [
       {
-        "id": "1745095036108",
-        "nombre": "Sprint 1",
-        "fechaInicio": "2025-07-15",
-        "fechaCierre": "2025-10-11",
+        "id": "sprint1",
+        "nombre": "Sprint 1 — Planificación y diseño",
+        "fechaInicio": "2025-09-16",
+        "fechaCierre": "2025-09-22",
         "tareas": [
           {
-            "id": "1745095929214",
-            "titulo": "tarea 123",
-            "descripcion": "daaaaaaaakh76",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-04-10"
+            "id": "tarea1",
+            "titulo": "Reunión de relevamiento",
+            "descripcion": "Reunirse con el cliente para definir objetivos del sitio",
+            "estado": "terminada",
+            "fechaLimite": "2025-09-16"
           },
           {
-            "id": "1745096855858",
-            "titulo": "lkdsfkldflk",
-            "descripcion": "2384uwq",
-            "estado": "Terminada",
-            "fechaLimite": "2025-04-01"
+            "id": "tarea2",
+            "titulo": "Crear wireframes",
+            "descripcion": "Diseñar los primeros esquemas de las páginas principales",
+            "estado": "terminada",
+            "fechaLimite": "2025-09-19"
           },
           {
-            "id": "1745363581133",
-            "titulo": "NuevaTarea",
-            "descripcion": "una tarea nueva",
-            "estado": "En progreso",
-            "fechaLimite": "2025-05-20"
+            "id": "tarea3",
+            "titulo": "Definir paleta de colores",
+            "descripcion": "Seleccionar colores y tipografías corporativas",
+            "estado": "en progreso",
+            "fechaLimite": "2025-09-21"
           },
           {
-            "id": "1745522409385",
-            "titulo": "Tarea nueva 1",
-            "descripcion": "tarea 1",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-05"
-          },
-          {
-            "id": "1757504059974",
-            "titulo": "holaaa",
-            "descripcion": "kdgaldg ",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-04-22"
-          }
-        ],
-        "fechaLimite": "2025-11-11"
-      },
-      {
-        "id": "1745092346108",
-        "nombre": "Sprint 2",
-        "fechaInicio": "2025-04-19",
-        "fechaCierre": "2025-05-11",
-        "tareas": [
-          {
-            "id": "1745095929214",
-            "titulo": "tarea 123",
-            "descripcion": "daaaaaaaa",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-04-10"
-          },
-          {
-            "id": "1745096855858",
-            "titulo": "lkdsfkldflk",
-            "descripcion": "2384uwq",
-            "estado": "Terminada",
-            "fechaLimite": "2025-04-01"
-          },
-          {
-            "id": "1745363581133",
-            "titulo": "NuevaTarea",
-            "descripcion": "una tarea nueva",
-            "estado": "En progreso",
-            "fechaLimite": "2025-05-20"
-          },
-          {
-            "id": "1743637839584",
-            "titulo": "Tarea backlog ",
-            "descripcion": "descripciónn",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-04-26"
-          },
-          {
-            "id": "1757504079633",
-            "titulo": "Tarea 4",
-            "descripcion": "una tarea",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-05"
-          },
-          {
-            "id": "1757504066138",
-            "titulo": "tarea nueva 2",
-            "descripcion": "una tarea",
-            "estado": "En Progreso",
-            "fechaLimite": "2025-05-08"
+            "id": "tarea4",
+            "titulo": "Preparar backlog de funcionalidades",
+            "descripcion": "Listar todas las funcionalidades que se desarrollarán",
+            "estado": "pendiente",
+            "fechaLimite": "2025-09-22"
           }
         ]
       },
       {
-        "id": "1745098906108",
-        "nombre": "Sprint 3",
-        "fechaInicio": "2025-04-19",
-        "fechaCierre": "2025-05-11",
+        "id": "sprint2",
+        "nombre": "Sprint 2 — Frontend base",
+        "fechaInicio": "2025-09-23",
+        "fechaCierre": "2025-09-28",
         "tareas": [
           {
-            "id": "1745095929214",
-            "titulo": "tarea 123",
-            "descripcion": "daaaaaaaa",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-04-10"
+            "id": "tarea5",
+            "titulo": "Configurar entorno de desarrollo",
+            "descripcion": "Crear proyecto con Vite, ESLint y Prettier",
+            "estado": "terminada",
+            "fechaLimite": "2025-09-23"
           },
           {
-            "id": "1745096855858",
-            "titulo": "lkdsfkldflk",
-            "descripcion": "2384uwq",
-            "estado": "Terminada",
-            "fechaLimite": "2025-04-01"
+            "id": "tarea6",
+            "titulo": "Implementar layout principal",
+            "descripcion": "Crear la estructura base (header, footer, sidebar)",
+            "estado": "en progreso",
+            "fechaLimite": "2025-09-25"
           },
           {
-            "id": "1745363581133",
-            "titulo": "NuevaTarea",
-            "descripcion": "una tarea nueva",
-            "estado": "En progreso",
-            "fechaLimite": "2025-05-20"
+            "id": "tarea7",
+            "titulo": "Crear componentes de navegación",
+            "descripcion": "Navbar, router y rutas iniciales",
+            "estado": "pendiente",
+            "fechaLimite": "2025-09-27"
           },
           {
-            "id": "1743637880016",
-            "titulo": "Tarea backlog 3",
-            "descripcion": "descrip 3",
-            "estado": "Pendiente",
-            "fechaLimite": "2025-05-15"
+            "id": "tarea8",
+            "titulo": "Maquetar página de inicio",
+            "descripcion": "HTML y CSS de la home, sin funcionalidad aún",
+            "estado": "pendiente",
+            "fechaLimite": "2025-09-28"
+          }
+        ]
+      },
+      {
+        "id": "sprint3",
+        "nombre": "Sprint 3 — Backend y funcionalidades",
+        "fechaInicio": "2025-09-30",
+        "fechaCierre": "2025-10-05",
+        "tareas": [
+          {
+            "id": "tarea9",
+            "titulo": "Configurar servidor Node.js",
+            "descripcion": "Inicializar proyecto con Express y rutas base",
+            "estado": "pendiente",
+            "fechaLimite": "2025-09-30"
+          },
+          {
+            "id": "tarea10",
+            "titulo": "Crear API de contacto",
+            "descripcion": "Endpoint para enviar formularios de contacto",
+            "estado": "pendiente",
+            "fechaLimite": "2025-10-02"
+          },
+          {
+            "id": "tarea11",
+            "titulo": "Conectar frontend con backend",
+            "descripcion": "Consumir API de contacto desde el formulario del sitio",
+            "estado": "pendiente",
+            "fechaLimite": "2025-10-04"
+          },
+          {
+            "id": "tarea12",
+            "titulo": "Implementar despliegue",
+            "descripcion": "Configurar deploy automático en Vercel",
+            "estado": "pendiente",
+            "fechaLimite": "2025-10-05"
           }
         ]
       }

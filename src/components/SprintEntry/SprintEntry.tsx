@@ -47,7 +47,7 @@ export const SprintEntry = ({ sprint }: ISprintProps) => {
     <div className={styles.mainDiv} onClick={handleSprintClick}>
       <h1>{sprint.nombre}</h1>
       <div className={styles.flexDiv}>
-        <div>
+        <div className={styles.fechaDiv}>
 
           <p>{sprint.fechaInicio}</p>
           <p>{sprint.fechaCierre}</p>

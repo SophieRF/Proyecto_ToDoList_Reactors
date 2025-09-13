@@ -7,20 +7,26 @@ import Modal from "../../ui/Modal/Modal"
 
 export const MainScreen = () => {
     const { sprints, getSprints } = useSprints()
-    const [openModal, setOpenModal]= useState(false);
-    const activeSprint=sprintStore((state) => state.sprintActiva);
+    const [openModal, setOpenModal] = useState(false);
+    const activeSprint = sprintStore((state) => state.sprintActiva);
 
-    const handleOpenModal= () => {
+    const handleOpenModal = () => {
         setOpenModal(true);
     }
-    const handleCloseModal= () => {
+    const handleCloseModal = () => {
         getSprints()
         setOpenModal(false)
     }
 
     useEffect(() => {
-        getSprints()
-    }, [getSprints])
+        getSprints();
+    }, [getSprints]);
+
+    useEffect(() => {
+        if (!activeSprint && sprints.length > 0) {
+            sprintStore.getState().setSprintActiva(sprints[0]);
+        }
+    }, [activeSprint, sprints]);
 
     return (
         <>
@@ -29,7 +35,9 @@ export const MainScreen = () => {
                     <p>Sprint: {activeSprint?.nombre}</p>
                     <div className={styles.crearTareaContainer}>
                         <p>Tareas en la Sprint: </p>
-                        <button onClick={handleOpenModal}>Crear Tarea</button>
+                        <button onClick={handleOpenModal}>
+                            Crear Tarea
+                        </button>
                     </div>
                 </div>
 
@@ -39,7 +47,7 @@ export const MainScreen = () => {
                     }
                 </div>
             </div>
-            {openModal && <Modal activeTarea={null} openModalSee={false} handleCloseModal={handleCloseModal} variant="board"/>}
+            {openModal && <Modal activeTarea={null} openModalSee={false} handleCloseModal={handleCloseModal} variant="board" />}
         </>
     )
 

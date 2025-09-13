@@ -23,21 +23,25 @@ export const SideBar = () => {
   return (
     <>
       <div className={styles.sidebar}>
-        <button onClick={() => navigate("/Backlog")} className={styles.backlogButton}>Backlog</button>
+        <button
+          onClick={() => navigate("/Backlog")}
+          className={styles.backlogButton}>
+          Backlog
+        </button>
         <div className={styles.mainContainer}>
-            <div className={styles.container}>
-              <h2>Lista de Sprints</h2>
-              <button
-                className={styles.plusButton}
-                onClick={handleOpenModal}>
+          <div className={styles.container}>
+            <h2>Lista de Sprints</h2>
+            <button
+              className={styles.plusButton}
+              onClick={handleOpenModal}>
+              <span className="material-symbols-outlined">
                 <span className="material-symbols-outlined">
-                  <span className="material-symbols-outlined">
-                    add
-                  </span>
+                  add
                 </span>
-              </button>
-            </div>
-            <SprintList />
+              </span>
+            </button>
+          </div>
+          <SprintList />
         </div>
 
       </div>

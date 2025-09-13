@@ -4,11 +4,10 @@
     border-radius: 12px;
     padding: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom: 1rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
 }
 
 @keyframes bordeParpadeante {
@@ -43,17 +42,43 @@
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
 
+.defaultContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 0.5rem;
 }
 
 .title {
+    color: rgb(37, 37, 37);
     font-size: 26px;
 }
 
+.textContainer {
+    max-width: 34ch;
+}
+
+.textContainerDescripcion {
+    max-width: 38ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.fechaLimiteContainer{
+    color: #dd482e;
+    font-weight: bold;
+}
+
 .estadoWrapper {
+    width: 42vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: first baseline;
     gap: 0.5rem;
     margin-top: 0.5rem;
 }
@@ -73,11 +98,19 @@
 
 .botonEnviar:hover {
     transform: scale(1.05);
-    background-color: #ebbc93;
+}
+
+.estadoYbuttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
 }
 
 .dropdownEstado select {
-    width: 7vw;
+    background-color: #FFAD69;
+    width: 8vw;
     padding: 6px 4px;
     border: none;
     border-radius: 8px;
@@ -87,34 +120,28 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.dropdownEstado select:hover {
-    background-color: #ebbc93;
-}
-
-.dropdownEstado select {
-    background-color: #FFAD69;
-}
-
 .dropdownEstado label {
     font-weight: bold;
     margin-right: 0.3rem;
 }
 
+.dropdownMoverASprint {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
 .dropdownMoverASprint select {
-    width: 6vw;
+    width: 8.1vw;
     padding: 6px 4px;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.2s;
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     background-color: #FFAD69;
     margin-right: 0.8rem;
-}
-
-.dropdownMoverASprint select:hover {
-    background-color: #ebbc93;
 }
 
 .dropdownMoverASprint label {
@@ -123,20 +150,22 @@
 
 .divBotones {
     display: flex;
-    justify-content: space-between;
     gap: 0.3rem;
-    margin-top: auto;
 }
 
 .divBotones button {
     padding: 4px 4px 0 4px;
-    width: 100%;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s, transform 0.2s;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.divBotones button:hover {
+    transform: scale(1.05);
+    background: darken(#FFAD69, 10%);
 }
 
 .botonVisibility {
@@ -154,7 +183,3 @@
     color: rgb(255, 255, 255);
 }
 
-.divBotones button:hover {
-    transform: scale(1.05);
-    background: darken(#FFAD69, 10%);
-}

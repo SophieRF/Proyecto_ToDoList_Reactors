@@ -5,7 +5,6 @@
     border: 2px black solid;
     gap: 1rem;
     padding: 0.80rem;
-    padding-right: 0.6rem;
     border-radius: 5px;
     background-color:#b4b4b481;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -13,13 +12,25 @@
 
 .mainDiv:hover {
     cursor: pointer;
+    background-color: #dadada81;
+}
+
+.mainDiv h1{
+    font-size: 24px;
+}
+
+.fechaDiv p {
+    white-space: nowrap; 
+    margin: 0;
 }
 
 .flexDiv{
     display: flex;
     flex-direction: row;
-    gap: 10%;
-    font-size: 13px;
+    justify-content: space-between; 
+    align-items: center;              
+    font-size: 14px;
+    gap: 0.2rem;  
 }
 
 .divBotones {
@@ -28,18 +39,25 @@
     margin-top: auto;
 }
 
-.divBotones button{
-    margin-right: 0;
-    padding: 4px 4px 0 4px;
-    width: 100%;
+.divBotones button {
+    padding: 2px 4px;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
     cursor: pointer;
-    transition: 0.3s, transform 0.2s;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
 }
+
+.divBotones button:hover {
+    transform: scale(1.1);  
+}
+
 
 .botonVisibility {
     background: #3f8b35;
