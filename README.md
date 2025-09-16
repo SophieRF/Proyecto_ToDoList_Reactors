@@ -1,54 +1,65 @@
-# React + TypeScript + Vite
+To-Do List App
+ Aplicación web para la gestión de tareas y sprints, desarrollada con React + TypeScript, Zustand para el manejo de estado y json-server como backend temporal. Ideal para equipos ágiles que buscan organizar sus tareas y sprints de forma visual y eficiente.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ <b>Características Principales<b/>
+* Gestión completa de tareas y sprints (CRUD)
 
-Currently, two official plugins are available:
+* Backlog centralizado para tareas pendientes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Visualización de sprints en columnas
 
-## Expanding the ESLint configuration
+* Movimiento dinámico de tareas entre estados y entre backlog/sprint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Filtro automático de tareas próximas a vencer (3 días) y resaltado de las mismas para advertir al usuario
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+* Notificaciones opcionales para tareas urgentes
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+ <b>Tecnologías Utilizadas<b/>
+* React + TypeScript:	Frontend y lógica de la app
+* Zustand:	Gestión de estado global
+* CSS:	Estilos 
+* json-server:	Backend temporal con API REST
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+ <b>Navegación de la App<b/> 
+* Backlog
+- Visualiza todas las tareas pendientes
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Crea, edita y elimina tareas
+
+- Mueve tareas a sprints activos
+
+* Sprint Board
+- Visualización tipo kanban con columnas por estado
+
+- Mueve tareas entre estados
+
+- Devuelve tareas al backlog
+
+- Crea, edita y elimina tareas dentro del sprint
+
+* taskStore
+Lista de tareas
+
+Tarea activa
+
+Filtro de tareas próximas a vencer
+
+📱 Vista de Tareas Próximas a Vencer
+Las tareas con fecha límite dentro de los próximos 3 días se resaltan automáticamente en la interfaz. Opcionalmente, se puede activar un sistema de notificaciones visuales para alertar al usuario.
+
+📷 Capturas de Pantalla
+(Agregá aquí screenshots de la app si querés mostrar el diseño visual)
+
+* Cómo Ejecutar el Proyecto
+bash
+# Instalar dependencias
+npm install
+
+# Ejecutar frontend
+npm run dev
+
+# Ejecutar backend temporal
+npx json-server --watch db.json --port 3000
+
+* Contribuciones
+Este proyecto fue desarrollado como ejercicio práctico para aplicar conceptos de React, TypeScript y gestión de estado con Zustand. Se aceptan sugerencias para extender la funcionalidad.
