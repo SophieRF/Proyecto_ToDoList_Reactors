@@ -1,10 +1,12 @@
-To-Do List App
+# To-Do List App
  Aplicación web para la gestión de tareas y sprints, desarrollada con React + TypeScript, Zustand para el manejo de estado y json-server como backend temporal. Ideal para equipos ágiles que buscan organizar sus tareas y sprints de forma visual y eficiente.
+ 
+ ![Pantalla principal](./screenshots/SprintScreen.png)
 
-Características Principales
+# Características Principales:
 * Gestión completa de tareas y sprints (CRUD)
 
-* Backlog centralizado para tareas pendientes
+* Backlog centralizado para tareas específicas
 
 * Visualización de sprints en columnas
 
@@ -12,54 +14,38 @@ Características Principales
 
 * Filtro automático de tareas próximas a vencer (3 días) y resaltado de las mismas para advertir al usuario
 
-* Notificaciones opcionales para tareas urgentes
-
-Tecnologías Utilizadas
+# Tecnologías Utilizadas:
 * React + TypeScript:	Frontend y lógica de la app
 * Zustand:	Gestión de estado global
 * CSS:	Estilos 
 * json-server:	Backend temporal con API REST
 
-Navegación de la App 
-* Backlog
-- Visualiza todas las tareas pendientes
+# Cómo Ejecutar el Proyecto
+bash:
+* Instalar dependencias: 
+**npm install**
 
-- Crea, edita y elimina tareas
+* Ejecutar frontend: 
+**npm run dev**
 
-- Mueve tareas a sprints activos
+* Ejecutar backend temporal: 
+**npx json-server --watch db.json**
 
-* Sprint Board
-- Visualización tipo kanban con columnas por estado
+# Vistas Previas de la App:
+**Pantalla Backlog**
 
-- Mueve tareas entre estados
+![Pantalla backlog](./screenshots/BacklogScreen.png)
 
-- Devuelve tareas al backlog
+**Pantalla Principal**
 
-- Crea, edita y elimina tareas dentro del sprint
+![Pantalla principal](./screenshots/SprintScreen.png)
 
-* taskStore
-Lista de tareas
+**Tarea pronta a vencer:**
 
-Tarea activa
+![Tarea a vencer](./screenshots/TareaPorVencer.png)
 
-Filtro de tareas próximas a vencer
+**Modal Crear/Editar/Ver Tarea (Mismo formato para Sprint):**
 
-📱 Vista de Tareas Próximas a Vencer
-Las tareas con fecha límite dentro de los próximos 3 días se resaltan automáticamente en la interfaz. Opcionalmente, se puede activar un sistema de notificaciones visuales para alertar al usuario.
-
-📷 Capturas de Pantalla
-(Agregá aquí screenshots de la app si querés mostrar el diseño visual)
-
-* Cómo Ejecutar el Proyecto
-bash
-# Instalar dependencias
-npm install
-
-# Ejecutar frontend
-npm run dev
-
-# Ejecutar backend temporal
-npx json-server --watch db.json --port 3000
-
-* Contribuciones
-Este proyecto fue desarrollado como ejercicio práctico para aplicar conceptos de React, TypeScript y gestión de estado con Zustand. Se aceptan sugerencias para extender la funcionalidad.
+![Crear Tarea Modal](./screenshots/CrearTarea.png)
+![Editarr Tarea Modal](./screenshots/EditarTarea.png)
+![Ver Tarea Modal](./screenshots/VerTarea.png)
