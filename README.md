@@ -1,7 +1,7 @@
 To-Do List App
  Aplicación web para la gestión de tareas y sprints, desarrollada con React + TypeScript, Zustand para el manejo de estado y json-server como backend temporal. Ideal para equipos ágiles que buscan organizar sus tareas y sprints de forma visual y eficiente.
 
- <b>Características Principales<b/>
+Características Principales
 * Gestión completa de tareas y sprints (CRUD)
 
 * Backlog centralizado para tareas pendientes
@@ -14,13 +14,13 @@ To-Do List App
 
 * Notificaciones opcionales para tareas urgentes
 
- <b>Tecnologías Utilizadas<b/>
+Tecnologías Utilizadas
 * React + TypeScript:	Frontend y lógica de la app
 * Zustand:	Gestión de estado global
 * CSS:	Estilos 
 * json-server:	Backend temporal con API REST
 
- <b>Navegación de la App<b/> 
+Navegación de la App 
 * Backlog
 - Visualiza todas las tareas pendientes
 
