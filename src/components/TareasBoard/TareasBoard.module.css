@@ -31,4 +31,5 @@
 .estado{
     margin-bottom: 2rem;
     color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Desplazamiento de la sombra en el eje X, eje Y, difuminado y color */
 }

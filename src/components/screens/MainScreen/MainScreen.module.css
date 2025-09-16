@@ -27,6 +27,7 @@
 .crearTareaContainer {
     display: flex;
     flex-direction: row;
+    margin-top: 14px;
 }
 
 .crearTareaContainer button {

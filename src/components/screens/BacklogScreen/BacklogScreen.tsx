@@ -22,7 +22,7 @@ export default function BacklogScreen() {
     <div className={styles.mainContainer}>
       <div >
         <div className={styles.titleContainer}>
-          <p>Backlog: </p>
+          <p>BACKLOG</p>
           <div className={styles.crearTareaContainer}>
             <p>Tareas en el Backlog: </p>
             <button onClick={handleOpenModal}>
