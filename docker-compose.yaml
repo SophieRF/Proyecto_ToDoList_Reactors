@@ -1,3 +1,5 @@
+#Preparación para futura incorporación de MongoDB
+
 version: "3.8"
 
 services:
