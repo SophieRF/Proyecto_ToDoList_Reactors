@@ -48,13 +48,23 @@ export const sprintStore = create<ISprintStore>((set) => ({
                 ? { ...sprint, ...sprintEditada }
                 : sprint
         );
-        return { sprints: listaSprintsActualizada };
+        const nuevaSprintActiva = state.sprintActiva?.id === sprintEditada.id
+            ? { ...state.sprintActiva, ...sprintEditada }
+            : state.sprintActiva;
+
+        return { sprints: listaSprintsActualizada, sprintActiva: nuevaSprintActiva };
     }),
 
-    // Agregar una tarea a un sprint por id
     agregarTareaASprint: (sprintId, nuevaTarea) => set((state) => {
-        const sprints = state.sprints.map((sprint) => sprint.id === sprintId ? { ...sprint, tareas: [...sprint.tareas, nuevaTarea] } : sprint)
-        return { sprints }
+        const sprints = state.sprints.map((sprint) =>
+            sprint.id === sprintId
+                ? { ...sprint, tareas: [...sprint.tareas, nuevaTarea] }
+                : sprint)
+        const nuevaSprintActiva = state.sprintActiva?.id === sprintId
+            ? { ...state.sprintActiva, tareas: [...state.sprintActiva.tareas, nuevaTarea] }
+            : state.sprintActiva;
+
+        return { sprints, sprintActiva: nuevaSprintActiva };
     }
     ),
     // Editar una tarea de un sprint
@@ -68,7 +78,16 @@ export const sprintStore = create<ISprintStore>((set) => ({
             }
             return sprint;
         });
-        return { sprints };
+        const nuevaSprintActiva = state.sprintActiva?.id === sprintId
+            ? {
+                ...state.sprintActiva,
+                tareas: state.sprintActiva.tareas.map((tarea) =>
+                    tarea.id === tareaEditada.id ? { ...tarea, ...tareaEditada } : tarea
+                )
+            }
+            : state.sprintActiva;
+
+        return { sprints, sprintActiva: nuevaSprintActiva };
     }),
 
     //Borrar tarea desde sprint

@@ -79,14 +79,14 @@
             "titulo": "Crear wireframes",
             "descripcion": "Diseñar los primeros esquemas de las páginas principales",
             "estado": "terminada",
-            "fechaLimite": "2025-09-19"
+            "fechaLimite": "2025-09-25"
           },
           {
             "id": "tarea3",
             "titulo": "Definir paleta de colores",
             "descripcion": "Seleccionar colores y tipografías corporativas",
             "estado": "en progreso",
-            "fechaLimite": "2025-09-21"
+            "fechaLimite": "2025-09-30"
           },
           {
             "id": "1758023782059",
@@ -115,13 +115,13 @@
             "titulo": "Implementar layout principal",
             "descripcion": "Crear la estructura base (header, footer, sidebar)",
             "estado": "en progreso",
-            "fechaLimite": "2025-09-25"
+            "fechaLimite": "2025-09-28"
           },
           {
             "id": "tarea7",
             "titulo": "Crear componentes de navegación",
             "descripcion": "Navbar, router y rutas iniciales",
-            "estado": "pendiente",
+            "estado": "Pendiente",
             "fechaLimite": "2025-09-27"
           },
           {

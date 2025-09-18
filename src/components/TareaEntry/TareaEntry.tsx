@@ -138,12 +138,12 @@ export default function TareaEntry({ tarea, variant }: ITareaEntryProps) {
                   <Form.Select
                     id={`estado-${tarea.id}`}
                     name="estado"
-                    value={tarea.estado}
+                    value={tarea.estado ?? "Terminada"}
                     onChange={handleChange}
                   >
                     <option value="Pendiente">Pendiente</option>
-                    <option value="En progreso">En progreso</option>
-                    <option value="Terminada">Terminada</option>
+                    <option value="en progreso">En progreso</option>
+                    <option value="terminada">Terminada</option>
                   </Form.Select>
                 </div>
 
